@@ -1,0 +1,1664 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Testing Borealis 2 (preview) on 30 Norwegian prompts</title>
+<meta name="description" content="Responses from NbAiLab/borealis2-26b-a4b-preview-gguf to 30 Norwegian test prompts covering bokmål, nynorsk, grammar, terminology and Norwegian society.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --paper: #f4f7f5;
+  --surface: #ffffff;
+  --ink: #17221f;
+  --ink-2: #3f4d49;
+  --muted: #6b7a76;
+  --line: #d5ddd9;
+  --line-strong: #b7c3be;
+  --accent: #1c7a63;
+  --accent-ink: #145a49;
+  --accent-soft: #e2efe9;
+  --prompt-bg: #eaf0ed;
+  --code-bg: #eef2f0;
+  --error: #a63d2f;
+  --error-bg: #f7e9e6;
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1513;
+    --surface: #161e1b;
+    --ink: #e6ede9;
+    --ink-2: #bcc8c3;
+    --muted: #8a9b95;
+    --line: #26312d;
+    --line-strong: #3a4844;
+    --accent: #52c9a2;
+    --accent-ink: #7fdcbd;
+    --accent-soft: #17302a;
+    --prompt-bg: #1a2320;
+    --code-bg: #1d2723;
+    --error: #e58a7c;
+    --error-bg: #33201c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1513;
+  --surface: #161e1b;
+  --ink: #e6ede9;
+  --ink-2: #bcc8c3;
+  --muted: #8a9b95;
+  --line: #26312d;
+  --line-strong: #3a4844;
+  --accent: #52c9a2;
+  --accent-ink: #7fdcbd;
+  --accent-soft: #17302a;
+  --prompt-bg: #1a2320;
+  --code-bg: #1d2723;
+  --error: #e58a7c;
+  --error-bg: #33201c;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.shell {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 56px;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-inline: 32px;
+  padding-block: 0 96px;
+}
+
+/* ---------- masthead ---------- */
+.masthead {
+  grid-column: 1 / -1;
+  padding-block: 56px 40px;
+  border-bottom: 1px solid var(--line-strong);
+  margin-bottom: 40px;
+}
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+.masthead h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 18px;
+  text-wrap: balance;
+  max-width: 24ch;
+}
+.lede {
+  font-size: 18px;
+  color: var(--ink-2);
+  max-width: 62ch;
+  margin: 0 0 32px;
+  text-wrap: pretty;
+}
+.run-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 0;
+}
+.run-facts > div {
+  padding: 14px 16px 14px 0;
+  border-right: 1px solid var(--line);
+  margin-right: 16px;
+}
+.run-facts > div:last-child { border-right: 0; margin-right: 0; }
+.run-facts dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.run-facts dd {
+  margin: 0;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.run-facts dd .sub { color: var(--muted); font-size: 13px; display: block; }
+.model-link { font-family: var(--mono); font-size: 13px; }
+
+/* ---------- rail ---------- */
+.rail {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+.rail-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+.rail ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.rail li { border-bottom: 1px solid var(--line); }
+.rail a {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 6px 10px 4px;
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 14.5px;
+  line-height: 1.3;
+  border-left: 2px solid transparent;
+  margin-left: -6px;
+}
+.rail a:hover { color: var(--ink); background: var(--accent-soft); }
+.rail a.active { color: var(--ink); border-left-color: var(--accent); font-weight: 500; }
+.nav-letter { font-family: var(--serif); font-size: 17px; color: var(--accent); }
+.nav-count { font-family: var(--mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.rail-note { font-size: 12.5px; color: var(--muted); margin: 18px 0 0; line-height: 1.5; }
+.rail-note a { color: inherit; }
+
+/* ---------- main ---------- */
+main { min-width: 0; max-width: 72ch; }
+.category { margin-bottom: 72px; }
+.category h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.1;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  text-wrap: balance;
+}
+.cat-letter {
+  color: var(--accent);
+  font-size: 22px;
+  font-weight: 600;
+  font-family: var(--mono);
+}
+.cat-meta {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 0 0 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.entry {
+  padding: 22px 0 36px;
+  border-top: 1px solid var(--line);
+}
+.entry:first-of-type { border-top: 0; padding-top: 4px; }
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.entry-id {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+.entry-id::before { content: "#"; opacity: 0.6; }
+.entry-id:hover { text-decoration: underline; }
+.entry-stats { display: flex; gap: 18px; margin: 0; flex-wrap: wrap; justify-content: flex-end; }
+.entry-stats > div { display: flex; gap: 6px; align-items: baseline; }
+.entry-stats dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.entry-stats dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.block-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.prompt {
+  background: var(--prompt-bg);
+  border-left: 3px solid var(--accent);
+  padding: 14px 18px 16px;
+  margin: 0 0 22px;
+  border-radius: 0 4px 4px 0;
+}
+.prompt p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.response-wrap { padding-left: 21px; }
+.response { color: var(--ink); font-size: 16px; }
+.response > :first-child { margin-top: 0; }
+.response > :last-child { margin-bottom: 0; }
+.response p { margin: 0 0 14px; text-wrap: pretty; }
+.response h1, .response h2, .response h3, .response h4 {
+  font-family: var(--sans);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 24px 0 8px;
+  color: var(--ink);
+}
+.response h1 { font-size: 19px; }
+.response h2 { font-size: 18px; }
+.response h3 { font-size: 17px; }
+.response h4 { font-size: 16px; }
+.response ul, .response ol { margin: 0 0 14px; padding-left: 26px; }
+.response li { margin-bottom: 5px; }
+.response li > ul, .response li > ol { margin: 5px 0 0; }
+.response li p { margin: 0 0 4px; }
+.response strong { font-weight: 600; }
+.response em { font-style: italic; }
+.response hr { border: 0; border-top: 1px solid var(--line); margin: 20px 0; }
+.response blockquote {
+  margin: 0 0 14px;
+  padding: 2px 0 2px 16px;
+  border-left: 2px solid var(--line-strong);
+  color: var(--ink-2);
+}
+.response code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+.response pre {
+  background: var(--code-bg);
+  padding: 12px 14px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.response pre code { background: none; padding: 0; font-size: inherit; }
+.response table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 8px 0 18px;
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+.response th, .response td {
+  text-align: left;
+  vertical-align: top;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+}
+.response th {
+  font-weight: 600;
+  border-bottom: 1px solid var(--line-strong);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.response.error { background: var(--error-bg); padding: 12px 16px; border-radius: 4px; }
+.error-label { color: var(--error); font-weight: 600; margin: 0 0 6px; }
+.response.error pre { background: none; padding: 0; margin: 0; white-space: pre-wrap; }
+
+/* ---------- footer ---------- */
+.colophon {
+  grid-column: 2;
+  border-top: 1px solid var(--line-strong);
+  padding-top: 20px;
+  font-size: 13.5px;
+  color: var(--muted);
+  max-width: 72ch;
+}
+.colophon p { margin: 0 0 6px; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .shell { grid-template-columns: 1fr; gap: 0; padding-inline: 20px; }
+  .masthead { padding-block: 40px 28px; margin-bottom: 28px; }
+  .rail {
+    position: static;
+    max-height: none;
+    margin-bottom: 40px;
+  }
+  .rail ol { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .colophon { grid-column: 1; }
+  .run-facts > div { border-right: 0; margin-right: 0; border-bottom: 1px solid var(--line); }
+  .run-facts > div:last-child { border-bottom: 0; }
+  .run-facts { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .run-facts { grid-template-columns: 1fr; }
+  .entry-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .entry-stats { justify-content: flex-start; }
+  .response-wrap { padding-left: 0; }
+  .prompt p { font-size: 17px; }
+  .category h2 { font-size: 27px; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header class="masthead">
+  <p class="eyebrow">Model test run · 30 prompts · 21 September 2026</p>
+  <h1>Testing Borealis 2 (preview) on 30 Norwegian prompts</h1>
+  <p class="lede">Below are the unedited responses from testing the preview release of Borealis 2 with 30 prompts covering everyday Norwegian, bokmål, nynorsk, grammar, terminology, and Norwegian society. <a href="analysis.html">Read the language analysis of these responses →</a></p>
+  <dl class="run-facts">
+    <div><dt>Model</dt><dd><a class="model-link" href="https://huggingface.co/NbAiLab/borealis2-26b-a4b-preview-gguf">NbAiLab/borealis2-26b-a4b-preview-gguf</a><span class="sub">GGUF, Q4_K_M quantization</span></dd></div>
+    <div><dt>Runtime</dt><dd>llama.cpp on Google Colab<span class="sub">L4 GPU</span></dd></div>
+    <div><dt>Sampling</dt><dd>temperature 0.7, top-p 0.95<span class="sub">max 2048 tokens per answer</span></dd></div>
+    <div><dt>Run</dt><dd>21 September 2026, 16:43<span class="sub">3 min 20 s wall time, 30/30 completed</span></dd></div>
+    <div><dt>Output</dt><dd>12,228 tokens generated<span class="sub">1,420 prompt tokens in, 61.2 tok/s average</span></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="Categories">
+  <p class="rail-title">Categories</p>
+  <ol>
+    <li><a href="#a--general-norwegian" data-cat="a--general-norwegian"><span class="nav-letter">A</span><span class="nav-name">General Norwegian</span><span class="nav-count">5</span></a></li><li><a href="#b--bokmål" data-cat="b--bokmål"><span class="nav-letter">B</span><span class="nav-name">Bokmål</span><span class="nav-count">5</span></a></li><li><a href="#c--nynorsk" data-cat="c--nynorsk"><span class="nav-letter">C</span><span class="nav-name">Nynorsk</span><span class="nav-count">5</span></a></li><li><a href="#d--grammar" data-cat="d--grammar"><span class="nav-letter">D</span><span class="nav-name">Grammar</span><span class="nav-count">5</span></a></li><li><a href="#e--terminology-and-style" data-cat="e--terminology-and-style"><span class="nav-letter">E</span><span class="nav-name">Terminology and style</span><span class="nav-count">5</span></a></li><li><a href="#f--norwegian-government-and-society" data-cat="f--norwegian-government-and-society"><span class="nav-letter">F</span><span class="nav-name">Norwegian government and society</span><span class="nav-count">5</span></a></li>
+  </ol>
+  <p class="rail-note">Prompt set: <code>borealis_test_prompts_v1.json</code>. Each entry shows the prompt exactly as sent and the response exactly as returned, with output tokens, prompt tokens and generation time.</p>
+</nav>
+
+<main>
+  
+<section class="category" id="a--general-norwegian">
+  <h2><span class="cat-letter">A</span>General Norwegian</h2>
+  <p class="cat-meta">5 prompts</p>
+  
+<article class="entry" id="prompt-1">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-1">01</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>280 tok</dd></div>
+      <div><dt>in</dt><dd>23 tok</dd></div>
+      <div><dt>time</dt><dd>4.36 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Forklar enkelt forskjellen mellom vær og klima.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Den enkleste måten å skille dem på er slik:</p>
+<p><strong>Vær</strong> er det som skjer ute akkurat nå.
+<strong>Klima</strong> er det vi forventer skjer ute, basert på mange år med målinger.</p>
+<p>Her er en litt lengre forklaring:</p>
+<p><strong>Vær (Kortsiktig)</strong>
+Været forteller oss om det regner, snør, er sol eller storm akkurat nå, eller i løpet av de neste timene og dagene. Været kan endre seg fra minutt til minutt.</p>
+<p><strong>Klima (Langsiktig)</strong>
+Klimaet forteller oss om det generelle været vi forventer et bestemt sted over lang tid. For å snakke om klima må vi se på målinger over mange år – vanligvis 30 år eller mer.</p>
+<p><strong>Et enkelt bilde for å huske forskjellen:</strong>
+Tenk på en fotballkamp:
+*   <strong>Været</strong> er som selve kampen: Det som skjer akkurat nå (mål, frispark, rødt kort).
+*   <strong>Klimaet</strong> er som lagets historikk: Hvordan laget vanligvis spiller, om de pleier å score mye, eller om de er kjent for et sterkt forsvar.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-2">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-2">02</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>556 tok</dd></div>
+      <div><dt>in</dt><dd>37 tok</dd></div>
+      <div><dt>time</dt><dd>8.97 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hjelp meg å forklare til en amerikansk kollega hva dugnad betyr. Svar på norsk.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Når du skal forklare «dugnad» for en amerikaner, er det best å fokusere på konseptet <strong>frivillig fellesskap</strong> og <strong>felles innsats</strong>. Siden ordet ikke har en direkte oversettelse, kan du forklare det som «community service» eller «voluntary collective labor».</p>
+<p>Her er et forslag til hvordan du kan formulere det på norsk (som du deretter kan oversette eller forklare på engelsk):</p>
+<hr />
+<p>**«Dugnad» er et helt sentralt begrep i den norske kulturen. Det beskriver en tradisjon der et fellesskap – enten det er et nabolag, en idrettsklubb eller en arbeidsplass – går sammen for å løse en felles oppgave frivillig.</p>
+<p>I stedet for å leie inn folk til å få jobben gjort, stiller alle opp og bidrar med sin tid og sine ressurser. Det handler om å bidra for det felles beste, uten betaling, for å bygge et sterkere samfunn.</p>
+<p>For en amerikaner kan du tenke på det som en «community work-dag» eller «neighborhood clean-up», men med et sterkt element av frivillighet som gjelder for nesten alle lag i det norske samfunnet. Det er altså ikke bare et engangstiltak, men en dypere kulturell verdiforankring om at vi alle har et ansvar for fellesskapet.</p>
+<hr />
+<p><strong>Noen tips når du forklarer det:</strong></p>
+<ul>
+<li><strong>Bruk relaterte begreper:</strong> Sammenlign det med «neighborhood clean-up» eller «volunteer work», men understrek at dugnad har en mye bredere og mer integrert plass i Norge.</li>
+<li><strong>Fremhev frivilligheten:</strong> Det er viktig å poengtere at ingen blir betalt; motivasjonen er ren samfunnsnytte.</li>
+<li><strong>Forklar kontekstene:</strong> Nevn at det kan være en «dugnad» i en idrettsklubb, for å male et nabolag, eller til og med på en arbeidsplass.</li>
+<li><strong>Knytt det til «janteloven» og fellesskapsverdier:</strong> Det kan være interessant å vise hvordan dugnadsånden reflekterer den norske vektleggingen av fellesskapet over individet.</li>
+</ul>
+<p>Ved å forklare dugnad på denne måten får du frem at det ikke bare handler om en spesifikk oppgave, men om en hel verdilære som gjennomsyrer norsk kultur.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-3">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-3">03</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>541 tok</dd></div>
+      <div><dt>in</dt><dd>40 tok</dd></div>
+      <div><dt>time</dt><dd>8.75 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hvorfor sier man at Norge er et langstrakt land? Forklar uttrykket og gi noen eksempler.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Når man sier at Norge er et «langstrakt land», mener man at landet strekker seg over en lang avstand fra nord til sør sammenlignet med hvor bredt det er fra øst til vest.</p>
+<p>Her er en nærmere forklaring og noen eksempler:</p>
+<h3>Hva betyr «langstrakt»?</h3>
+<p>Begrepet brukes for å beskrive at geografien i Norge er preget av stor lengde i forhold til bredde. Norge strekker seg fra nord til sør over mer enn 1 900 kilometer, men på det smaleste er landet bare rundt 300 kilometer bredt.</p>
+<p>Dette skaper flere unike kjennetegn for landet:</p>
+<ol>
+<li><strong>Store klimaforskjeller:</strong> Fordi landet er så langt, opplever vi store variasjoner i klima og temperatur. I nord er vinteren lang og kald, mens sør har et mildere klima.</li>
+<li><strong>Tidssoner og dagslys:</strong> Den store lengden påvirker også dagslyset. I nord er det midnattssol om sommeren og mørketid om vinteren, mens man i sør har mer typiske årstider med varierende lengde på dagen.</li>
+<li><strong>Geologiske og landskapige forskjeller:</strong> Fra vestkysten, preget av fjord og skjærgård, til de store fjellene i øst og tundraen i nord – landskapet endrer seg dramatisk når man reiser langs den lengdegraden.</li>
+</ol>
+<h3>Eksempler på langstrakt geografi i Norge:</h3>
+<ul>
+<li><strong>Nord-Sør-avstanden:</strong> Avstanden fra Nordkapp, som ligger lengst nord, til Lindesnes, som ligger lengst sør, er nærmere 2 000 kilometer. Dette er en av de lengste nord-sør-avstandene i Europa.</li>
+<li><strong>Tidssonetilpasning:</strong> Selv om Norge ligger innenfor samme tidssone, føles det som om man krysser tidssoner når man reiser fra Finnmark til Agder, på grunn av de klimatiske forskjellene.</li>
+<li><strong>Naturopplevelser:</strong> På samme dag kan man se snø og is i Troms, mens det er grønt og mildt i Telemark eller Agder.</li>
+</ul>
+<p>Kort sagt beskriver uttrykket at Norge er et land med stor geografisk lengde som skaper store variasjoner i både klima, landskap og livsstil.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-4">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-4">04</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>499 tok</dd></div>
+      <div><dt>in</dt><dd>47 tok</dd></div>
+      <div><dt>time</dt><dd>8.05 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>En bekjent har spurt om jeg vil bli med på tur i helgen. Hjelp meg å svare på en høflig måte at jeg ikke kan.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Her er noen forslag til hvordan du kan svare høflig, avhengig av hvor nær du er personen og hvor mye du ønsker å forklare:</p>
+<p><strong>Kort og enkelt (hvis du ikke vil gi en spesifikk grunn):</strong>
+* «Takk for spørsmålet! Det høres kjempekoselig ut, men jeg kan dessverre ikke bli med denne gangen. Håper dere får en fin tur!»
+* «Så hyggelig at du spør! Jeg kan dessverre ikke være med denne gangen, men jeg håper dere får det supert. Takk for at du tenkte på meg!»</p>
+<p><strong>Hvis du vil gi en liten forklaring (uten å være for detaljert):</strong>
+* «Takk for invitasjonen! Jeg skulle gjerne blitt med, men jeg har allerede andre planer denne helgen. Håper dere får en flott tur!»
+* «Det høres veldig hyggelig ut, men jeg får dessverre ikke til å bli med denne gangen på grunn av andre planer. Takk for at du spurte!»</p>
+<p><strong>Hvis du vil foreslå en annen gang (hvis du faktisk har lyst til å bli med senere):</strong>
+* «Tusen takk for invitasjonen! Jeg kan dessverre ikke bli med denne helgen, men jeg blir veldig gjerne med en annen gang. Håper dere får det fint!»
+* «Så hyggelig at du spurte! Jeg kan dessverre ikke denne gangen, men jeg vil gjerne bli med en annen gang. Kanskje vi kan finne en ny dag snart? Håper dere får en fin tur!»</p>
+<p><strong>Tips:</strong>
+* <strong>Vær ærlig, men kort:</strong> Du trenger ikke gi en lang forklaring hvis du ikke vil. En enkel og høflig avvisning er helt greit.
+* <strong>Vis at du setter pris på invitasjonen:</strong> Bruk ord som «takk for at du spurte» eller «hyggelig at du tenkte på meg». Det gjør avvisningen mindre brå.
+* <strong>Unngå å «overforklare»:</strong> Hvis du ikke har lyst til å fortelle hva du skal, er det helt greit å bare si «jeg har andre planer». Det er en høflig måte å sette en grense på.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-5">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-5">05</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>523 tok</dd></div>
+      <div><dt>in</dt><dd>44 tok</dd></div>
+      <div><dt>time</dt><dd>8.51 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Forklar uttrykket «å ha is i magen». Hva betyr det, og i hvilke situasjoner kan man bruke det?</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Uttrykket <strong>«å ha is i magen»</strong> betyr å være rolig, tålmodig og kontrollert, selv i situasjoner som er pressende, vanskelige eller preget av stress.</p>
+<p>Her er en nærmere forklaring:</p>
+<h3>Hva betyr det egentlig?</h3>
+<p>Å ha «is i magen» handler om evnen til å beholde fatningen. I stedet for å reagere med følelser (som frykt, sinne eller panikk), klarer personen å tenke seg om og handle rasjonelt. Det antyder en indre ro som gjør at man ikke lar seg rive med av omstendighetene.</p>
+<p>Uttrykket kan gi konnotasjoner til to ulike sider:
+1. <strong>Positivt:</strong> Å være rolig, sindig og kontrollert når det virkelig gjelder.
+2. <strong>Negativt (sjelden):</strong> Å være kald, kynisk eller likegyldig til andres følelser.</p>
+<h3>Når kan man bruke det?</h3>
+<p>Uttrykket brukes som regel i situasjoner der det kreves ro og tålmodighet. Her er noen typiske eksempler:</p>
+<ul>
+<li><strong>I pressede situasjoner:</strong> «Selv om situasjonen var svært spent, viste han at han hadde is i magen og tok den riktige beslutningen.»</li>
+<li><strong>Når man må vente:</strong> «Vi måtte ha is i magen og vente på at markedet skulle stabilisere seg før vi investerte.»</li>
+<li><strong>I sport eller konkurranse:</strong> «Laget måtte ha is i magen og holde på føringen helt til slutten av kampen.»</li>
+<li><strong>Ved en vanskelig avgjørelse:</strong> «Selv om det var en vanskelig situasjon, klarte hun å ha is i magen og ikke handle forhastet.»</li>
+</ul>
+<h3>Opprinnelse (metafor)</h3>
+<p>Metaforen er ganske intuitiv: «Is» symboliserer kulde, noe som kan fryse eller dempe intensiteten. Å ha «is i magen» kan altså ses på som å ha en indre kjølighet som hindrer at man blir overopphetet av stress eller sinne. Det er altså en indre «kjølevifte» som sørger for at man holder seg sindig.</p>
+<p>Oppsummert betyr å ha is i magen å være rolig og samlet når det virkelig trengs.</p></div>
+  </div>
+</article>
+</section>
+<section class="category" id="b--bokmål">
+  <h2><span class="cat-letter">B</span>Bokmål</h2>
+  <p class="cat-meta">5 prompts</p>
+  
+<article class="entry" id="prompt-6">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-6">06</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>109 tok</dd></div>
+      <div><dt>in</dt><dd>31 tok</dd></div>
+      <div><dt>time</dt><dd>1.73 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Skriv et kort avsnitt om hvorfor det er viktig å lese bøker.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Å lese bøker er viktig fordi det utvider horisonten, styrker språket og gir oss tilgang til nye perspektiver og verdener. Når vi leser, trenes fantasien og konsentrasjonsevnen, samtidig som vi får mulighet til å forstå andre kulturer og erfaringer bedre. Bøker er en unik kilde til kunnskap og underholdning som ikke bare beriker sinnet, men som også kan gi oss hvile og inspirasjon i en travel hverdag.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-7">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-7">07</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>229 tok</dd></div>
+      <div><dt>in</dt><dd>45 tok</dd></div>
+      <div><dt>time</dt><dd>3.62 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Skriv en kort og profesjonell e-post til en kollega der du ber om å flytte et møte fra tirsdag til onsdag.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Her er et par alternativer, avhengig av hvor formell du ønsker å være:</p>
+<p><strong>Alternativ 1: Formell og direkte (passer best hvis dere ikke samarbeider hver dag)</strong></p>
+<p>Emne: Møte tirsdag kl. [tidspunkt]</p>
+<p>Hei [Navn],</p>
+<p>Jeg har dessverre fått en konflikt på tirsdag, og lurer på om det er mulig å flytte møtet vårt til onsdag i stedet?</p>
+<p>Gi meg beskjed om det passer for deg, eller om du har et annet tidspunkt som passer bedre.</p>
+<p>Hilsen [Ditt Navn]</p>
+<hr />
+<p><strong>Alternativ 2: Litt mer uformell (passer best hvis dere jobber tett sammen)</strong></p>
+<p>Emne: Flytte møtet fra tirsdag?</p>
+<p>Hei [Navn],</p>
+<p>Tirsdag har blitt litt hektisk, så jeg lurer på om vi kan flytte møtet til onsdag?</p>
+<p>Gi meg beskjed om det går greit, eller om vi skal finne et annet tidspunkt.</p>
+<p>Mvh. [Ditt Navn]</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-8">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-8">08</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>355 tok</dd></div>
+      <div><dt>in</dt><dd>39 tok</dd></div>
+      <div><dt>time</dt><dd>5.72 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Forklar forskjellen mellom «hverken» og «verken». Er begge formene tillatt på bokmål?</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Begge formene – <strong>hverken</strong> og <strong>verken</strong> – er tillatt på bokmål, men de brukes i litt forskjellige sammenhenger.</p>
+<p>Her er en forklaring på forskjellene:</p>
+<h3>1. Hverken (den vanligste formen)</h3>
+<p>«Hverken» er den mest brukte formen på bokmål, spesielt når den fungerer som et ord som uttrykker et negativt valg mellom to alternativer. Den står ofte sammen med «eller» i en todelt nektelse.</p>
+<ul>
+<li><strong>Eksempel:</strong> «Han snakket hverken norsk eller svensk.»</li>
+<li><strong>Eksempel:</strong> «Hverken du eller jeg kan vite sannheten.»</li>
+</ul>
+<h3>2. Verken (tillatt, men sjeldnere)</h3>
+<p>«Verken» er også tillatt på bokmål. Den har samme betydning som «hverken», men brukes oftere i mer formelle eller litterære tekster. I moderne bokmål blir «hverken» likevel foretrukket i de fleste sammenhenger.</p>
+<ul>
+<li><strong>Eksempel:</strong> «Verken det ene eller det andre var mulig.»</li>
+</ul>
+<h3>Oppsummering</h3>
+<ul>
+<li><strong>Hverken</strong> er den mest brukte og anbefalte formen på bokmål i dagligspråk og offentlige tekster.</li>
+<li><strong>Verken</strong> er tillatt, men regnes som mer formell og brukes sjeldnere i moderne bokmål.</li>
+</ul>
+<p><strong>Konklusjon:</strong> Du kan bruke begge formene, men «hverken» er den formen som best samsvarer med dagens bokmålsstandard.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-9">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-9">09</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>254 tok</dd></div>
+      <div><dt>in</dt><dd>61 tok</dd></div>
+      <div><dt>time</dt><dd>4.06 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Skriv om denne teksten slik at den høres mer naturlig ut: «Jeg ønsker å informere deg om at jeg ikke har mulighet til å delta på møtet grunnet det faktum at jeg er bortreist.»</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Her er noen måter å skrive det på som høres mer naturlig ut, avhengig av hvor formell du ønsker å være:</p>
+<p><strong>Litt mer uformelt (best for e-post til kolleger):</strong>
+* «Jeg får dessverre ikke deltatt på møtet siden jeg ikke er på kontoret da.»
+* «Jeg er dessverre bortreist og får derfor ikke kommet på møtet.»
+* «Siden jeg er borte den dagen, får jeg dessverre ikke deltatt på møtet.»</p>
+<p><strong>Fortsatt høflig, men mindre stivt:</strong>
+* «Jeg vil gjerne informere om at jeg ikke kan delta på møtet fordi jeg er bortreist.»
+* «Jeg får dessverre ikke deltatt på møtet da jeg ikke er på kontoret.»</p>
+<p><strong>Hva bør du velge?</strong>
+Det opprinnelige uttrykket «grunnet det faktum at» er veldig formelt og brukes sjelden i vanlig norsk tale eller skrift. Bruk heller «siden», «fordi» eller «da» – det gjør språket langt mer flytende og naturlig.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-10">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-10">10</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>115 tok</dd></div>
+      <div><dt>in</dt><dd>55 tok</dd></div>
+      <div><dt>time</dt><dd>1.84 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Skriv fem setninger på bokmål som inneholder sammensatte ord. Velg ord som en norskspråklig modell lett kunne ha skrevet feil som to separate ord.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Her er fem setninger på bokmål med sammensatte ord som ofte feilaktig skrives som to separate ord:</p>
+<ol>
+<li>Vi må huske å ta med <strong>solkrem</strong> på turen.</li>
+<li><strong>Kjøkkenbordet</strong> er laget av solid eik.</li>
+<li>Hun liker å gå turer i <strong>skogkanten</strong>.</li>
+<li>En <strong>brannbil</strong> rykket raskt ut til stedet.</li>
+<li><strong>Sykkelhjelm</strong> er nødvendig for sikkerhet.</li>
+</ol></div>
+  </div>
+</article>
+</section>
+<section class="category" id="c--nynorsk">
+  <h2><span class="cat-letter">C</span>Nynorsk</h2>
+  <p class="cat-meta">5 prompts</p>
+  
+<article class="entry" id="prompt-11">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-11">11</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>137 tok</dd></div>
+      <div><dt>in</dt><dd>41 tok</dd></div>
+      <div><dt>time</dt><dd>2.18 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Skriv eit kort avsnitt på naturleg nynorsk om kvifor det er viktig å ta vare på naturen.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Her er eit kort avsnitt på naturleg nynorsk:</p>
+<p>Det er heilt avgjerande at vi tek vare på naturen, fordi han gir oss alt vi treng for å leve. Naturen gir oss reint vatn, mat og luft, og fungerer som vern mot naturkatastrofar. I tillegg har naturen eit eigenverd i seg sjølv – eit mangfald av planter og dyr som vi har eit ansvar for å beskytte. Ved å ta vare på naturen legg vi til rette for ei berekraftig framtid der både menneske og andre levande vesen kan trivast.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-12">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-12">12</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>115 tok</dd></div>
+      <div><dt>in</dt><dd>46 tok</dd></div>
+      <div><dt>time</dt><dd>1.84 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Skriv ein kort og profesjonell e-post til ein kollega der du ber om å flytte eit møte frå tysdag til onsdag.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Her er eit framlegg til ein kort og profesjonell e-post:</p>
+<p><strong>Emne:</strong> Flytting av møte frå tysdag til onsdag</p>
+<p>Hei [Namn på kollega],</p>
+<p>Eg vil gjerne høyre om det er mogleg å flytte møtet vårt frå tysdag til onsdag.</p>
+<p>Eg ser at det passar betre for meg, og håpar det passar for deg òg. Gi meg beskjed om kva tid som passar deg best på onsdag.</p>
+<p>Beste helsing,</p>
+<p>[Namnet ditt]</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-13">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-13">13</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>227 tok</dd></div>
+      <div><dt>in</dt><dd>52 tok</dd></div>
+      <div><dt>time</dt><dd>3.61 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Forklar skilnaden mellom «eg», «jeg», «vi» og «me». Kva former høyrer til bokmål og kva høyrer til nynorsk?</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Her er ei forklaring på skilnaden mellom desse formene, og kva målformer dei høyrer til:</p>
+<h3>«Eg» og «jeg» (første eintal)</h3>
+<ul>
+<li><strong>Eg</strong> høyrer til <strong>nynorsk</strong>.</li>
+<li><strong>Jeg</strong> høyrer til <strong>bokmål</strong>.</li>
+</ul>
+<p>Begge formene tyder «eg» (første person eintal), men «eg» er den nynorske forma, medan «jeg» er bokmålsforma.</p>
+<h3>«Vi» og «me» (første fleirtal)</h3>
+<ul>
+<li><strong>Vi</strong> høyrer til <strong>bokmål</strong>.</li>
+<li><strong>Me</strong> høyrer til <strong>nynorsk</strong>.</li>
+</ul>
+<p>Begge formene tyder «vi» (første person fleirtal), men «vi» er bokmålsforma, og «me» er nynorskforma.</p>
+<h3>Kort oppsummert:</h3>
+<ul>
+<li><strong>Nynorsk:</strong> eg, me</li>
+<li><strong>Bokmål:</strong> jeg, vi</li>
+</ul></div>
+  </div>
+</article>
+<article class="entry" id="prompt-14">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-14">14</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>255 tok</dd></div>
+      <div><dt>in</dt><dd>53 tok</dd></div>
+      <div><dt>time</dt><dd>4.08 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Gjer denne teksten om til naturleg nynorsk: «Jeg synes det er viktig at alle får muligheten til å delta, selv om de ikke har så mye erfaring fra før.»</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Her er nokre forslag til korleis du kan seia dette på naturleg nynorsk, alt etter kor formell du vil vera:</p>
+<p><strong>Nærast opp til originalen:</strong>
+«Eg synest det er viktig at alle får moglegheita til å delta, sjølv om dei ikkje har så mykje røynsle frå før.»</p>
+<p><strong>Litt meir muntleg/flytande:</strong>
+«Eg synest det er viktig at alle får høve til å delta, sjølv om dei ikkje har så mykje røynsle frå før.»</p>
+<p><strong>Noko meir formelt/i ein skriftleg tekst:</strong>
+«Eg synest det er viktig at alle får moglegheit til å delta, sjølv om dei ikkje har så mykje røynsle frå før.»</p>
+<p><strong>Kort oppsummert:</strong>
+* «Moglegheita» kan gjerne kortast ned til «moglegheit» eller bytast ut med «høve».
+* «Erfaring» blir på nynorsk til «røynsle» (eller «erfaring», men «røynsle» er meir typisk nynorsk).</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-15">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-15">15</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>116 tok</dd></div>
+      <div><dt>in</dt><dd>29 tok</dd></div>
+      <div><dt>time</dt><dd>1.85 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Skriv fem setningar på nynorsk om ein vanleg arbeidsdag.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Her er fem setningar på nynorsk om ein vanleg arbeidsdag:</p>
+<ol>
+<li>Arbeidsdagen startar vanlegvis klokka åtte med ein kopp kaffi.</li>
+<li>Eg brukar mesteparten av dagen på å løyse ulike oppgåver.</li>
+<li>På kontoret arbeider eg tett med dei andre kollegaene mine.</li>
+<li>Klokka to tek vi ein kort pause for å slappe av og snakke.</li>
+<li>Dagen tek slutt med at eg skriv ferdig rapporten og pakkar saman.</li>
+</ol></div>
+  </div>
+</article>
+</section>
+<section class="category" id="d--grammar">
+  <h2><span class="cat-letter">D</span>Grammar</h2>
+  <p class="cat-meta">5 prompts</p>
+  
+<article class="entry" id="prompt-16">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-16">16</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>230 tok</dd></div>
+      <div><dt>in</dt><dd>48 tok</dd></div>
+      <div><dt>time</dt><dd>3.69 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Er denne setningen grammatisk korrekt? «Jeg har bodd i Norge siden fem år.» Hvis ikke, hva er feil, og hvordan bør setningen skrives?</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Nei, setningen er ikke helt korrekt.</p>
+<p>Feilen ligger i bruken av ordet <strong>«siden»</strong>. På norsk bruker vi «siden» om et bestemt tidspunkt (for eksempel «siden 2019»), mens vi bruker <strong>«i»</strong> om et tidsrom (for eksempel «i fem år»).</p>
+<p>Her er de to riktige måtene å skrive det på:</p>
+<ol>
+<li><strong>«Jeg har bodd i Norge i fem år.»</strong> (Dette er den mest vanlige måten å si det på hvis du snakker om tidsrommet).</li>
+<li><strong>«Jeg har bodd i Norge siden 2019.»</strong> (Dette er riktig dersom du vil peke på et bestemt årstall).</li>
+</ol>
+<p><strong>Kort forklaring:</strong>
+*   <strong>«I fem år»</strong> uttrykker varigheten av tiden du har bodd der.
+*   <strong>«Siden»</strong> brukes kun når du henviser til et spesifikt punkt i fortiden som markerer starten på perioden.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-17">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-17">17</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>535 tok</dd></div>
+      <div><dt>in</dt><dd>41 tok</dd></div>
+      <div><dt>time</dt><dd>8.78 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hva er forskjellen på «da» og «når» på norsk? Forklar regelen og gi tre eksempler.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Forskjellen på «da» og «når» på norsk handler hovedsakelig om tidspunktet det refereres til: om det er snakk om noe som skjedde én gang i fortiden, eller noe som skjer flere ganger, eller vil skje i fremtiden.</p>
+<p>Her er hovedregelen:</p>
+<h3>1. «Da» brukes om fortiden</h3>
+<p>Vi bruker «da» når vi snakker om et spesifikt tidspunkt eller en hendelse som skjedde én gang i fortiden. Det tilsvarer det engelske ordet «when» i fortid (f.eks. «When I was a child»).</p>
+<ul>
+<li><strong>Eksempel 1:</strong> «Da jeg var barn, bodde vi i Oslo.» (Her skjer det én gang, og det er i fortiden).</li>
+<li><strong>Eksempel 2:</strong> «Han ringte meg da han kom hjem.» (Dette skjedde én gang i fortiden).</li>
+<li><strong>Eksempel 3:</strong> «Da vi var på ferie, snøet det.» (Enkelthendelse i fortiden).</li>
+</ul>
+<h3>2. «Når» brukes om nåtiden og fremtiden</h3>
+<p>Vi bruker «når» om noe som skjer regelmessig (gjentakelse) eller om noe som vil skje i fremtiden. Det tilsvarer «when» i nåtid og fremtid.</p>
+<ul>
+<li><strong>Eksempel 1:</strong> «Når det regner, tar vi med oss en paraply.» (Regnet kommer ofte, og vi tar med paraply hver gang).</li>
+<li><strong>Eksempel 2:</strong> «Jeg ringer deg når jeg har tid.» (Hendelse i fremtiden).</li>
+<li><strong>Eksempel 3:</strong> «Når sola skinner, er vi glad.» (Regelmessig tilstand).</li>
+</ul>
+<h3>Oppsummert:</h3>
+<ul>
+<li><strong>Da:</strong> Spesifikk hendelse i fortiden (Enkelthendelse).</li>
+<li><strong>Når:</strong> Regelmessig hendelse eller hendelse i fremtiden (Gjentakelse/fremtid).</li>
+</ul>
+<p><strong>En enkel hugseregel:</strong>
+Hvis du kan bytte ut «da» med «den gang» eller «den dagen» uten at meningen forsvinner, er det fortid – og da bruker du «da». Hvis du kan bytte det ut med «hver gang» eller «den dagen som vil komme», er det fremtid eller gjentakelse – og da bruker du «når».</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-18">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-18">18</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>573 tok</dd></div>
+      <div><dt>in</dt><dd>75 tok</dd></div>
+      <div><dt>time</dt><dd>9.46 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hvilken av disse setningene er korrekt: «De fleste av deltakerne har svart» eller «De fleste av deltakerne har svarte»? Forklar hvorfor, og gi også et eksempel på en setning der det kan være vanskelig å velge riktig verbform.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Den korrekte setningen er: <strong>«De fleste av deltakerne har svart.»</strong></p>
+<p>Her er forklaringen:</p>
+<h3>Hvorfor er det «svart» og ikke «svarte»?</h3>
+<ol>
+<li><strong>Hovedregelen:</strong> I norsk bruker vi perfektum partisipp (altså verbformen som følger etter <em>har</em>, <em>er</em>, <em>hadde</em> osv.) for å uttrykke at noe har skjedd. Perfektum partisipp av verbet <em>å svare</em> er «svart».</li>
+<li><strong>«Svarte» er fortid:</strong> Ordet «svarte» er preteritum (fortid) av verbet <em>å svare</em>. Det brukes når vi forteller om noe som skjedde på et bestemt tidspunkt i fortiden, for eksempel: «De svarte på e-posten i går.»</li>
+<li><strong>Perfektum partisipp:</strong> Når vi bruker hjelpeverbet <em>har</em>, må vi bruke perfektum partisipp. Derfor blir det «har svart».</li>
+</ol>
+<p><strong>Eksempel:</strong>
+*   «De fleste av deltakerne har svart på invitasjonen.» (Perfektum partisipp)
+*   «De svarte alle i går.» (Preteritum)</p>
+<h3>Når kan det være vanskelig å velge riktig form?</h3>
+<p>Det kan ofte være forvirring når et verb har samme form både i preteritum og perfektum partisipp. Da kan det se ut som om begge formene er riktige, selv om den ene er feil.</p>
+<p><strong>Eksempel med verbet «å skrive»:</strong>
+Preteritum er «skrev», men perfektum partisipp er «skrevet».</p>
+<ul>
+<li><strong>Riktig:</strong> «Han har skrevet et brev.» (Perfektum partisipp)</li>
+<li><strong>Feil:</strong> «Han har skrevet et brev.» (Her ser det riktig ut, men tenk på at preteritum er «skrev».)</li>
+</ul>
+<p><strong>Eksempel med verbet «å spise»:</strong>
+Preteritum er «spiste» (eller «åt»), men perfektum partisipp er «spist».</p>
+<ul>
+<li><strong>Riktig:</strong> «Han har spist middag.» (Perfektum partisipp)</li>
+<li><strong>Feil:</strong> «Han har spiste middag.» (Her er det feil å bruke preteritum «spiste».)</li>
+</ul>
+<p><strong>Konklusjon:</strong> Når du er i tvil, sjekk om verbet har en egen perfektum partisipp-form. Hvis det har det, skal du bruke den etter hjelpeverbet <em>har</em>.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-19">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-19">19</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>498 tok</dd></div>
+      <div><dt>in</dt><dd>46 tok</dd></div>
+      <div><dt>time</dt><dd>8.15 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Forklar forskjellen mellom bestemt og ubestemt form av substantiv. Bruk «bok», «bil» og «hus» som eksempler.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Når vi snakker om <strong>bestemt</strong> og <strong>ubestemt</strong> form av substantiv, handler det om hvor presist vi peker ut noe.</p>
+<p>Kort forklart:
+*   <strong>Ubestemt form:</strong> Brukes når vi snakker om noe generelt eller en hvilken som helst av samme type.
+*   <strong>Bestemt form:</strong> Brukes når vi snakker om en spesifikk ting som både taleren og lytteren vet hva er.</p>
+<p>Her er eksemplene med ordene «bok», «bil» og «hus»:</p>
+<h3>1. Bok</h3>
+<ul>
+<li><strong>Ubestemt form:</strong> «En bok»<ul>
+<li><em>Eksempel:</em> «Jeg vil lese en bok.» (Det spiller ingen rolle hvilken bok det er – bare at det er én bok).</li>
+</ul>
+</li>
+<li><strong>Bestemt form:</strong> «Boken»<ul>
+<li><em>Eksempel:</em> «Boken står på bordet.» (Vi snakker om en helt spesifikk bok, den som står på bordet).</li>
+</ul>
+</li>
+</ul>
+<h3>2. Bil</h3>
+<ul>
+<li><strong>Ubestemt form:</strong> «En bil»<ul>
+<li><em>Eksempel:</em> «Han kjøpte en bil.» (Han kjøpte hvilken som helst bil – vi peker ikke ut en helt spesiell modell).</li>
+</ul>
+</li>
+<li><strong>Bestemt form:</strong> «Bilen»<ul>
+<li><em>Eksempel:</em> «Bilen er blå.» (Vi snakker om en helt bestemt bil – den blå bilen vi allerede vet hvilken det er).</li>
+</ul>
+</li>
+</ul>
+<h3>3. Hus</h3>
+<ul>
+<li><strong>Ubestemt form:</strong> «Et hus»<ul>
+<li><em>Eksempel:</em> «De bygde et hus.» (De bygde et hus av en eller annen type – ikke nødvendigvis et bestemt hus).</li>
+</ul>
+</li>
+<li><strong>Bestemt form:</strong> «Huset»<ul>
+<li><em>Eksempel:</em> «Huset er gammelt.» (Vi snakker om et helt spesifikt hus, for eksempel det huset vi bor i).</li>
+</ul>
+</li>
+</ul>
+<h3>Oppsummering</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Ord</th>
+<th style="text-align: left;">Ubestemt form</th>
+<th style="text-align: left;">Bestemt form</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Bok</strong></td>
+<td style="text-align: left;">En bok</td>
+<td style="text-align: left;">Boken</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bil</strong></td>
+<td style="text-align: left;">En bil</td>
+<td style="text-align: left;">Bilen</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hus</strong></td>
+<td style="text-align: left;">Et hus</td>
+<td style="text-align: left;">Huset</td>
+</tr>
+</tbody>
+</table></div>
+  </div>
+</article>
+<article class="entry" id="prompt-20">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-20">20</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>521 tok</dd></div>
+      <div><dt>in</dt><dd>70 tok</dd></div>
+      <div><dt>time</dt><dd>8.54 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hva er galt med denne setningen: «Det er mange ting som jeg synes er viktig å tenke på når man skal ta en beslutning»? Er den grammatisk feil, stilistisk svak, eller begge deler? Foreslå en bedre formulering.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Setningen er ikke direkte grammatisk feil, men den er både stilistisk svak og litt kronglete.</p>
+<p>Her er en gjennomgang av hva som kan forbedres:</p>
+<h3>1. Grammatisk analyse og presisering</h3>
+<p>Setningen er grammatisk korrekt, men den er svært <strong>omstendelig</strong>. Den inneholder mange småord og «fyllord» som gjør den unødvendig lang.</p>
+<ul>
+<li><strong>«Det er mange ting som»</strong>: Dette er en typisk «det-konstruksjon» som ofte brukes i muntlig tale, men i skriftlig norsk kan det virke slapt og upresist. Det er bedre å gå rett til poenget.</li>
+<li><strong>«tenke på»</strong>: Dette er et ganske generelt uttrykk. Avhengig av kontekst kan det ofte erstattes med mer presise verb som <em>vurderer</em>, <em>overveier</em> eller <em>tar i betraktning</em>.</li>
+</ul>
+<h3>2. Stilistiske svakheter</h3>
+<ul>
+<li><strong>«Man»-bruken</strong>: Bruken av «man» kan gi setningen en upersonlig og litt vag klang. I mange sammenhenger er det bedre å bruke et mer aktivt språk.</li>
+<li><strong>Ordrikdom</strong>: Setningen bruker mange ord der færre ord kunne formidlet det samme med mer kraft.</li>
+</ul>
+<h3>Forslag til bedre formuleringer</h3>
+<p>Avhengig av hvor formell eller presis du ønsker å være, kan setningen skrives om på flere måter:</p>
+<ol>
+<li>
+<p><strong>Mer presis og aktiv (anbefalt):</strong></p>
+<ul>
+<li><em>«Det er flere faktorer å vurdere før man tar en beslutning.»</em></li>
+<li><em>«Når man skal ta en beslutning, bør man vurdere flere faktorer.»</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Mer konsis og direkte:</strong></p>
+<ul>
+<li><em>«Nøkkelfaktorer ved beslutningstaking inkluderer...»</em> (Her fortsetter du med det som faktisk er viktig å tenke på).</li>
+</ul>
+</li>
+<li>
+<p><strong>Mer formell:</strong></p>
+<ul>
+<li><em>«Beslutningen krever grundige overveielser av flere aspekter.»</em></li>
+</ul>
+</li>
+</ol>
+<p><strong>Oppsummert:</strong> Den opprinnelige setningen fungerer greit i en uformell samtale, men i skriftlig eller profesjonell sammenheng bør du velge en av de mer presise og konsise variantene ovenfor.</p></div>
+  </div>
+</article>
+</section>
+<section class="category" id="e--terminology-and-style">
+  <h2><span class="cat-letter">E</span>Terminology and style</h2>
+  <p class="cat-meta">5 prompts</p>
+  
+<article class="entry" id="prompt-21">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-21">21</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>1005 tok</dd></div>
+      <div><dt>in</dt><dd>49 tok</dd></div>
+      <div><dt>time</dt><dd>17.01 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hva er gode norske alternativer til «implementere»? Gi forslag som passer i henholdsvis teknisk, administrativ og dagligdags sammenheng.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Ordet «implementere» er et lånord fra engelsk som brukes mye i næringslivet og tekniske miljøer. På norsk har vi mange gode alternativer som ofte er mer presise. Valget avhenger helt av hva det er som skal implementeres (et system, en plan, en regel eller et tiltak).</p>
+<p>Her er forslag delt inn etter sammenheng:</p>
+<h3>1. Teknisk sammenheng</h3>
+<p>I tekniske miljøer (IT, ingeniørfag) handler det ofte om å sette i verk en funksjon, installere programvare eller bygge ut en infrastruktur.</p>
+<ul>
+<li><strong>Iverksette:</strong> Brukes ofte om å sette i gang en teknisk løsning eller et tiltak.<ul>
+<li><em>Eksempel:</em> «Vi skal iverksette den nye oppdateringen i natt.»</li>
+</ul>
+</li>
+<li><strong>Rulle ut:</strong> Brukes spesielt om programvare eller nettverk som gradvis gjøres tilgjengelig for brukere.<ul>
+<li><em>Eksempel:</em> «Vi ruller ut det nye CRM-systemet neste måned.»</li>
+</ul>
+</li>
+<li><strong>Installere:</strong> Når det er snakk om å få programvare eller maskinvare inn i et miljø.<ul>
+<li><em>Eksempel:</em> «Vi må installere den nye driveren på alle PC-ene.»</li>
+</ul>
+</li>
+<li><strong>Integrere:</strong> Når en ny funksjon kobles sammen med eksisterende systemer.<ul>
+<li><em>Eksempel:</em> «Vi integrerer betalingsløsningen i nettbutikken.»</li>
+</ul>
+</li>
+<li><strong>Utvikle:</strong> Når man skaper en løsning fra bunn av.<ul>
+<li><em>Eksempel:</em> «Utviklerne utvikler nå en ny API-løsning.»</li>
+</ul>
+</li>
+</ul>
+<h3>2. Administrativ sammenheng</h3>
+<p>I administrasjon handler det ofte om å innføre nye regler, planer eller organisatoriske grep.</p>
+<ul>
+<li><strong>Innføre:</strong> Brukes når man tar i bruk en ny regel, struktur eller praksis.<ul>
+<li><em>Eksempel:</em> «Ledelsen har innført ny policy for hjemmekontor.»</li>
+</ul>
+</li>
+<li><strong>Iverksette:</strong> Passer godt når man omsetter en beslutning til konkret handling.<ul>
+<li><em>Eksempel:</em> «Vi iverksetter omstillingsplanen fra mars.»</li>
+</ul>
+</li>
+<li><strong>Utforme:</strong> Brukes når selve utformingen av en plan eller regel er fokus.<ul>
+<li><em>Eksempel:</em> «Vi utformer en ny rekrutteringsstrategi.»</li>
+</ul>
+</li>
+<li><strong>Formalisere:</strong> Når en uformell praksis gjøres til en fast regel.<ul>
+<li><em>Eksempel:</em> «Vi formaliserer arbeidsmiljøavtalen i år.»</li>
+</ul>
+</li>
+<li><strong>Sette i verk:</strong> En god, klar måte å si at noe skal startes.<ul>
+<li><em>Eksempel:</em> «Tiltaket ble satt i verk for å redusere kostnader.»</li>
+</ul>
+</li>
+</ul>
+<h3>3. Dagligdags sammenheng</h3>
+<p>I hverdagstale søker vi ofte etter enkle og direkte ord.</p>
+<ul>
+<li><strong>Bruke:</strong> Når man snakker om å ta i bruk et verktøy eller system.<ul>
+<li><em>Eksempel:</em> «Vi har begynt å bruke den nye appen.»</li>
+</ul>
+</li>
+<li><strong>Gjøre:</strong> Når man handler ut fra en plan.<ul>
+<li><em>Eksempel:</em> «Vi gjør det vi har blitt enige om.»</li>
+</ul>
+</li>
+<li><strong>Få på plass:</strong> Når man sørger for at noe endelig fungerer.<ul>
+<li><em>Eksempel:</em> «Vi må få på plass det nye systemet før ferien.»</li>
+</ul>
+</li>
+<li><strong>Starte:</strong> Når fokus er på selve oppstarten.<ul>
+<li><em>Eksempel:</em> «Vi starter med det nye programmet i morgen.»</li>
+</ul>
+</li>
+</ul>
+<h3>Oppsummeringstabell</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Kontekst</th>
+<th style="text-align: left;">Alternativer</th>
+<th style="text-align: left;">Bruksområde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Teknisk</strong></td>
+<td style="text-align: left;">Iverksette, rulle ut, installere, integrere, utvikle</td>
+<td style="text-align: left;">IT-systemer, maskinvare, programvare</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Administrativ</strong></td>
+<td style="text-align: left;">Innføre, iverksette, utforme, formalisere, sette i verk</td>
+<td style="text-align: left;">Regler, planer, organisering, policy</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dagligdags</strong></td>
+<td style="text-align: left;">Bruke, gjøre, få på plass, starte</td>
+<td style="text-align: left;">Verktøy, verktøy, prosesser, hverdagstiltak</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tips:</strong> Hvis du er usikker, fungerer ofte <strong>«innføre»</strong> eller <strong>«sette i verk»</strong> som gode, generelle erstatninger for «implementere» i de fleste sammenhenger.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-22">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-22">22</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>757 tok</dd></div>
+      <div><dt>in</dt><dd>55 tok</dd></div>
+      <div><dt>time</dt><dd>12.56 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Er «ta en beslutning» et godt uttrykk på norsk, eller finnes det bedre alternativer? Forklar forskjellen mellom «ta en beslutning» og «ta en avgjørelse».</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>«Ta en beslutning» er et helt korrekt og vanlig uttrykk på norsk, men det er nyttig å kjenne til nyansene og alternativene.</p>
+<p>Her er en forklaring på forskjellene og de beste alternativene:</p>
+<h3>1. «Ta en beslutning» vs. «Ta en avgjørelse»</h3>
+<p>Begge uttrykkene betyr det samme, men de brukes litt forskjellig i norsk språk:</p>
+<ul>
+<li><strong>«Ta en beslutning»</strong> er mer formelt og brukes ofte i politiske, forretningsmessige eller juridiske sammenhenger. Det handler ofte om en større, mer kompleks prosess der mange faktorer må veies mot hverandre.<ul>
+<li><em>Eksempel:</em> «Styret må ta en beslutning om selskapets fremtidige retning.»</li>
+</ul>
+</li>
+<li><strong>«Ta en avgjørelse»</strong> brukes oftere i hverdagsspråk eller om enkelttilfeller. Det kan virke litt lettere og mindre «tungt» enn en beslutning.<ul>
+<li><em>Eksempel:</em> «Dommeren må ta en avgjørelse i saken.»</li>
+</ul>
+</li>
+</ul>
+<p><strong>Nyanse:</strong> Selv om begge er riktige, kan «beslutning» gi assosiasjoner til en formell prosess med flere steg, mens «avgjørelse» ofte peker på selve øyeblikket der man velger én vei fremfor en annen.</p>
+<h3>2. Er det et godt uttrykk?</h3>
+<p>Ja, «ta en beslutning» er et godt og korrekt uttrykk. Mange bruker det nettopp fordi det høres presist og profesjonelt ut.</p>
+<h3>3. Bedre alternativer?</h3>
+<p>Selv om «ta en beslutning» er riktig, finnes det andre ord som kan være bedre avhengig av sammenhengen:</p>
+<ul>
+<li><strong>«Avgjøre»</strong>: Dette er et sterkere og mer aktivt verb som ofte er mer presist.<ul>
+<li><em>I stedet for:</em> «Vi må ta en beslutning om saken.»</li>
+<li><em>Bruk heller:</em> «Vi må avgjøre saken.»</li>
+</ul>
+</li>
+<li><strong>«Bestemme»</strong>: Dette er det mest vanlige og uformelle uttrykket. Det fungerer i nesten alle hverdagslige situasjoner.<ul>
+<li><em>I stedet for:</em> «Hun måtte ta en beslutning om hvilket hus hun skulle kjøpe.»</li>
+<li><em>Bruk heller:</em> «Hun måtte bestemme seg for hvilket hus hun skulle kjøpe.»</li>
+</ul>
+</li>
+<li><strong>«Konkludere»</strong>: Brukes når man kommer frem til en konklusjon etter å ha vurdert fakta.<ul>
+<li><em>Eksempel:</em> «Vi konkluderte med at prosjektet var gjennomførbart.»</li>
+</ul>
+</li>
+<li><strong>«Velge»</strong>: Brukes når man må velge mellom to eller flere alternativer.<ul>
+<li><em>Eksempel:</em> «Vi måtte velge mellom å satse eller trekke oss ut.»</li>
+</ul>
+</li>
+</ul>
+<h3>Oppsummering</h3>
+<ul>
+<li><strong>«Ta en beslutning»</strong> er helt riktig, men formelt.</li>
+<li><strong>«Ta en avgjørelse»</strong> er litt mindre formelt og brukes ofte om enkle valg.</li>
+<li><strong>«Bestemme seg»</strong> eller <strong>«avgjøre»</strong> er ofte mer aktive og presise alternativer i mange sammenhenger.</li>
+</ul>
+<p>Valget avhenger altså av hvor formell situasjonen er og hva slags type valg det er snakk om.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-23">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-23">23</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>347 tok</dd></div>
+      <div><dt>in</dt><dd>59 tok</dd></div>
+      <div><dt>time</dt><dd>5.58 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Les denne setningen: «Vi må adressere utfordringene knyttet til implementeringen av den nye løsningen.» Er dette naturlig norsk? Skriv eventuelt om til et mer naturlig språk.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Setningen er korrekt, men den høres litt stiv og formell ut. Dette er typisk «kansellistil» eller «business-norsk», som gjerne henter uttrykk fra engelsk (som å <em>adressere</em> noe).</p>
+<p>Her er noen forslag til hvordan du kan skrive det om for at det skal høres mer naturlig ut:</p>
+<p><strong>Litt mindre formelt:</strong>
+* «Vi må ta tak i utfordringene med å innføre den nye løsningen.»
+* «Vi må løse problemene vi har med å ta i bruk den nye løsningen.»</p>
+<p><strong>Mer direkte og mindre formelt:</strong>
+* «Vi må fikse problemene med den nye løsningen.»
+* «Vi må løse utfordringene rundt den nye løsningen.»</p>
+<p><strong>Helt uformelt:</strong>
+* «Vi må få på plass den nye løsningen.»
+* «Vi må få løst utfordringene vi har med den nye løsningen.»</p>
+<p><strong>Valg av ord:</strong>
+* <strong>«Ta tak i»</strong> eller <strong>«løse»</strong> fungerer bedre enn «adressere» på norsk.
+* <strong>«Innføre»</strong> eller <strong>«ta i bruk»</strong> er mer naturlige norske ord enn «implementere».</p>
+<p>Oppsummert: Setningen er ikke feil, men den høres litt unaturlig ut. Hvis du vil ha et mer naturlig språk, er det bedre å bruke uttrykk som <strong>«ta tak i»</strong>, <strong>«løse»</strong> eller <strong>«fikse»</strong> i stedet for «adressere».</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-24">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-24">24</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>321 tok</dd></div>
+      <div><dt>in</dt><dd>42 tok</dd></div>
+      <div><dt>time</dt><dd>5.16 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hva er forskjellen mellom «tilbakemelding», «feedback» og «respons»? Bruk hvert ord i en setning.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Selv om ordene ofte brukes om hverandre, er det nyanser i betydningen. Her er en forklaring på forskjellene:</p>
+<ol>
+<li>
+<p><strong>Tilbakemelding</strong>
+   Dette er det vanligste norske ordet for å gi eller motta en vurdering, reaksjon eller kommentar. Det brukes gjerne i situasjoner der man vurderer noe som er utført eller presentert.
+   *   <em>Eksempel:</em> «Lærerne ga elevene konstruktiv tilbakemelding på oppgaven.»</p>
+</li>
+<li>
+<p><strong>Feedback</strong>
+   Dette er det engelske ordet for tilbakemelding, og det brukes også mye på norsk, spesielt i næringslivet og i populærkultur. Det bærer ofte med seg en positiv eller konstruktiv undertone.
+   *   <em>Eksempel:</em> «Vi trenger mer feedback fra kundene for å forbedre tjenesten.»</p>
+</li>
+<li>
+<p><strong>Respons</strong>
+   Respons betyr «svar» eller «reaksjon». Det beskriver selve reaksjonen på noe (for eksempel et svar på en tale, et innlegg på sosiale medier eller et svar fra et publikum), snarere enn selve vurderingen av arbeidet.
+   *   <em>Eksempel:</em> «Ordførerens tale fikk stor respons fra forsamlingen.»</p>
+</li>
+</ol>
+<p><strong>Kort sagt:</strong> «Tilbakemelding» og «feedback» betyr det samme, men «respons» beskriver selve reaksjonen eller svaret.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-25">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-25">25</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>292 tok</dd></div>
+      <div><dt>in</dt><dd>59 tok</dd></div>
+      <div><dt>time</dt><dd>4.68 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Passer uttrykket «i forhold til» i denne setningen? «Vi må vurdere kostnadene i forhold til budsjettet.» Forklar og foreslå eventuelt en bedre formulering.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Ja, uttrykket «i forhold til» passer godt i denne setningen. Det brukes ofte for å sammenligne to størrelser eller for å sette noe inn i en sammenheng. I dette tilfellet betyr det at man må se kostnadene opp mot budsjettet for å se om de er i tråd med det som er avsatt.</p>
+<p>Setningen er korrekt og klar, men avhengig av hva du ønsker å understreke, finnes det andre måter å si det på. Her er et par eksempler:</p>
+<ol>
+<li>«Vi må vurdere kostnadene opp mot budsjettet.» (Her understrekes sammenligningen.)</li>
+<li>«Vi må vurdere kostnadene i forhold til budsjettet.» (Dette er den opprinnelige setningen, og den fungerer bra.)</li>
+<li>«Vi må se kostnadene i sammenheng med budsjettet.» (Dette er litt mer formelt og antyder at man må se på den helhetlige situasjonen.)</li>
+</ol>
+<p>Valg av uttrykk avhenger altså av nyanse og kontekst. Hvis du ønsker en mer direkte sammenligning, er «opp mot» eller «i forhold til» gode valg. Hvis du ønsker å understreke den helhetlige sammenhengen, er «i sammenheng med» et godt alternativ.</p></div>
+  </div>
+</article>
+</section>
+<section class="category" id="f--norwegian-government-and-society">
+  <h2><span class="cat-letter">F</span>Norwegian government and society</h2>
+  <p class="cat-meta">5 prompts</p>
+  
+<article class="entry" id="prompt-26">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-26">26</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>313 tok</dd></div>
+      <div><dt>in</dt><dd>45 tok</dd></div>
+      <div><dt>time</dt><dd>5.03 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hvordan er det politiske systemet i Norge organisert? Forklar kort hvilken rolle Stortinget, regjeringen og domstolene har.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Det politiske systemet i Norge er et parlamentarisk demokrati. Det betyr at regjeringen utgår fra Stortinget og må ha Stortingets tillit for å kunne styre landet.</p>
+<p>Her er en kort forklaring på rollene til Stortinget, regjeringen og domstolene:</p>
+<p><strong>Stortinget</strong>
+Stortinget er Norges nasjonalforsamling og har den lovgivende makten. De vedtar lover, bestemmer statsbudsjettet og fører tilsyn med regjeringen. Stortinget har også som rolle å representere folket og behandle saker av nasjonal betydning.</p>
+<p><strong>Regjeringen</strong>
+Regjeringen utgjør den utøvende makten. Den ledet av statsministeren og består av statsråder som har ansvar for ulike departementer og fagområder. Regjeringen iverksetter lovene som Stortinget vedtar, styrer statsforvaltningen og foreslår lover og statsbudsjettet til Stortinget.</p>
+<p><strong>Domstolene</strong>
+Domstolene har den dømmende makten. De fortolker og anvender lovene som er vedtatt av Stortinget. Norges Høyesterett står øverst og er den øverste domstolen. Domstolene sørger for at lovene etterleves korrekt, og kan kontrollere at vedtak fattet av forvaltningen og regjeringen holder seg innenfor loven.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-27">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-27">27</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>104 tok</dd></div>
+      <div><dt>in</dt><dd>40 tok</dd></div>
+      <div><dt>time</dt><dd>1.67 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hva kjennetegner den norske skolen? Skriv en kort beskrivelse på 3-5 setninger.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Den norske skolen kjennetegnes av en inkluderende og likestilt tilnærming der alle barn får lik rett til utdanning uavhengig av bakgrunn. Det legges stor vekt på elevaktiv læring, kritisk tenkning og praktiske ferdigheter som forbereder elevene på fremtidens arbeidsliv. Skolen fremmer også demokratiske verdier og samarbeidsevner gjennom gruppearbeid og diskusjoner i klasserommet.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-28">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-28">28</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>970 tok</dd></div>
+      <div><dt>in</dt><dd>54 tok</dd></div>
+      <div><dt>time</dt><dd>16.38 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hvordan fungerer systemet med kommuner og fylker i Norge? Hvilke oppgaver har kommunene ansvar for, og hvilke oppgaver blir lagt til fylkene?</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Norge er delt inn i to administrative nivåer under staten: <strong>kommuner</strong> og <strong>fylker</strong>. Begge nivåene har sitt eget folkevalgte organ (kommunestyre/fylkesting), egne administrasjoner og ansvar for ulike oppgaver.</p>
+<p>Her er en oversikt over hvordan ansvarsfordelingen fungerer:</p>
+<h3>1. Kommunenes oppgaver</h3>
+<p>Kommunen er det laveste forvaltningsnivået og er det nivået som står nærmest innbyggerne. Kommunen har ansvar for tjenester som berører dagliglivet til folk i stor grad.</p>
+<p><strong>Viktige oppgaver for kommunene:</strong></p>
+<ul>
+<li><strong>Grunnskole:</strong> Drift og vedlikehold av barneskoler og ungdomsskoler.</li>
+<li><strong>Helse og omsorg:</strong> Sykehjem, hjemmesykepleie, helsestasjoner og omsorgsboliger.</li>
+<li><strong>Barnehager:</strong> Kommunen har ansvar for å tilby nok barnehageplasser (selv om mange barnehager er private).</li>
+<li><strong>Sosiale tjenester:</strong> NAV (sosialhjelp) og andre sosiale støtteordninger.</li>
+<li><strong>Vann, avløp og renovasjon:</strong> Sørge for rent vann, avløpshåndtering og renovasjon av søppel.</li>
+<li><strong>Barnevern:</strong> Tjenester for barn som trenger beskyttelse og omsorg.</li>
+<li><strong>Lokalt planarbeid:</strong> Reguleringsplaner og reguleringsbestemmelser som bestemmer hva ulike landområder skal brukes til.</li>
+<li><strong>Kultur og fritid:</strong> Biblioteker, svømmehaller og idrettsanlegg.</li>
+<li><strong>Lokal infrastruktur:</strong> Vedlikehold av kommunale veier, gatebelysning og parker.</li>
+</ul>
+<hr />
+<h3>2. Fylkenes oppgaver</h3>
+<p>Fylket fungerer som et mellomnivå mellom staten og kommunene. Oppgavene er mer regionalt orienterte og dekker tjenester som er for store til at en enkelt kommune kan håndtere dem alene.</p>
+<p><strong>Viktige oppgaver for fylkene:</strong></p>
+<ul>
+<li><strong>Videregående opplæring:</strong> Drift og vedlikehold av videregående skoler, samt voksenopplæring.</li>
+<li><strong>Tannhelsetjenesten:</strong> Den offentlige tannhelsetjenesten er et fylkeskommunalt ansvar.</li>
+<li><strong>Fylkesveier:</strong> Drift og vedlikehold av fylkesveier (nummerert med f.eks. Fv. 100).</li>
+<li><strong>Kollektivtransport:</strong> Organisering av busstilbud, ferger og andre transportmidler i regionen.</li>
+<li><strong>Regional utvikling:</strong> Arbeide med vekst og næringsutvikling i hele regionen.</li>
+<li><strong>Kulturarv:</strong> Bevaring og forvaltning av kulturminner.</li>
+<li><strong>Tjenester for ungdom:</strong> Ungdomsklubber og ungdomskonsulenter.</li>
+</ul>
+<p>---### Kort oppsummert: Forskjellen mellom nivåene</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Oppgavetype</th>
+<th style="text-align: left;">Kommune</th>
+<th style="text-align: left;">Fylke</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Skole</strong></td>
+<td style="text-align: left;">Barneskole og ungdomsskole</td>
+<td style="text-align: left;">Videregående skole</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Helse</strong></td>
+<td style="text-align: left;">Sykepleie, omsorg og barnehage</td>
+<td style="text-align: left;">Tannhelsetjeneste</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Infrastruktur</strong></td>
+<td style="text-align: left;">Kommunale veier</td>
+<td style="text-align: left;">Fylkesveier</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kollektivt</strong></td>
+<td style="text-align: left;">(Ofte via selskap)</td>
+<td style="text-align: left;">Buss, ferge, kollektivtransport</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Planarbeid</strong></td>
+<td style="text-align: left;">Lokal reguleringsplan</td>
+<td style="text-align: left;">Regional planstrategi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Viktige merknader:</strong>
+1.  <strong>Statlige oppgaver:</strong> Oppgaver som politi, forsvar, rettsvesen og spesialisthelsetjenesten (sykehus) ligger under statlig myndighet (Helse- og omsorgsdepartementet, Justis- og beredskapsdepartementet osv.), ikke under kommune eller fylke.
+2.  <strong>Tjenesteforsyning:</strong> Selv om ansvaret er delt, samarbeider kommuner og fylker ofte om felles tjenester som for eksempel NAV.
+3.<strong>Styrkeforhold:</strong> Kommunene har større ansvar for innbyggerens dagligliv, mens fylkene har et mer regionalt og overordnet ansvar.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-29">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-29">29</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>808 tok</dd></div>
+      <div><dt>in</dt><dd>45 tok</dd></div>
+      <div><dt>time</dt><dd>13.49 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hva er folketrygden, og hvilken rolle spiller NAV i det norske velferdssamfunnet? Forklar forskjellen mellom de to.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>For å forstå det norske velferdssystemet er det viktig å skille mellom <strong>folketrygden</strong> (selve systemet) og <strong>NAV</strong> (institusjonen som forvalter det).</p>
+<p>Her er en forklaring på hva de er, og forskjellen mellom dem:</p>
+<h3>1. Hva er folketrygden?</h3>
+<p>Folketrygden er selve grunnmuren i det norske velferdssystemet. Det er en obligatorisk, offentlig forsikringsordning som dekker alle som bor eller arbeider i Norge.</p>
+<ul>
+<li><strong>Formål:</strong> Den skal sikre innbyggerne inntekt ved sykdom, arbeidsledighet, alderdom, uførhet og andre livshendelser. Målet er å skape sosial trygghet og jevne ut økonomiske forskjeller.</li>
+<li><strong>Hva dekker den?</strong> Folketrygden inkluderer ytelser som alderspensjon, uføretrygd, sykepenger, foreldrepenger, arbeidsavklaringspenger, arbeidsledighetstrygd og stønad ved sykdom.</li>
+<li><strong>Finansiering:</strong> Den finansieres gjennom arbeidsgiveravgift, medlemsavgift (det vi kaller "skatt" på lønn) og statlige overføringer.</li>
+</ul>
+<h3>2. Hva er NAV?</h3>
+<p>NAV står for <em>Ny arbeids- og velferdsforvaltning</em>. Det er et direktorat underlagt Arbeids- og sosialministeriet, som fungerer som det operative organet som forvalter folketrygden i praksis.</p>
+<ul>
+<li><strong>Rolle:</strong> NAV er det organet som tar imot søknader om ytelser, betaler ut stønadene, og tilbyr tjenester som jobbhjelp og sosiale tjenester.</li>
+<li><strong>Oppgave:</strong> NAV er ikke bare et "utbetalingskontor", men også et arbeidsmarkedstiltak som hjelper folk tilbake i jobb. De driver også med rus- og sosialt arbeid, økonomisk rådgivning og utforming av velferdsytelser.</li>
+<li><strong>Oppbygging:</strong> NAV består av et direktorat (sentralt), regionale kontorer og lokale NAV-kontorer som er synligheten til staten der folk bor.</li>
+</ul>
+<hr />
+<h3>Forskjellen mellom folketrygden og NAV</h3>
+<p>Kort fortalt er forskjellen mellom systemet og institusjonen:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Egenskap</th>
+<th style="text-align: left;">Folketrygden</th>
+<th style="text-align: left;">NAV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Natur</strong></td>
+<td style="text-align: left;">En lovfestet forsikringsordning (systemet).</td>
+<td style="text-align: left;">En offentlig myndighet/et direktorat (institusjonen).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hva det er</strong></td>
+<td style="text-align: left;">Det juridiske rammeverket og reglene som bestemmer hvem som har krav på hva.</td>
+<td style="text-align: left;">Organet som praktisk utfører og forvalter reglene.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Funksjon</strong></td>
+<td style="text-align: left;">Definerer rettigheter til ytelser (f.eks. "du har rett på trygd når du fyller 67").</td>
+<td style="text-align: left;">Behandler søknader, utbetaler pengene og gir veiledning.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Omfang</strong></td>
+<td style="text-align: left;">Omfatter selve rettighetsstrukturen og finansieringen av ytelser.</td>
+<td style="text-align: left;">Omfatter både administrasjon av trygd, arbeidsmarkedstjenester og sosiale tjenester.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>En enkel analogi:</strong>
+Tenk på folketrygden som <strong>reglene i et spill</strong> – det er reglene som bestemmer hvordan man skal spille og hva man har krav på. NAV er <strong>dommerne og banen</strong> – de som styrer spillet, tolker reglene og ser til at alle får det de har rett på.</p></div>
+  </div>
+</article>
+<article class="entry" id="prompt-30">
+  <header class="entry-head">
+    <a class="entry-id" href="#prompt-30">30</a>
+    <dl class="entry-stats">
+      <div><dt>out</dt><dd>643 tok</dd></div>
+      <div><dt>in</dt><dd>49 tok</dd></div>
+      <div><dt>time</dt><dd>10.6 s</dd></div>
+    </dl>
+  </header>
+  <div class="prompt">
+    <span class="block-label">Prompt</span>
+    <p>Hva betyr det at Norge er et konstitusjonelt monarki og et parlamentarisk demokrati? Forklar begge begrepene og hvordan de henger sammen.</p>
+  </div>
+  <div class="response-wrap">
+    <span class="block-label">Response</span>
+    <div class="response"><p>Begrepene beskriver hvordan det norske statssystemet er bygget opp og hvordan makt fordeles. Her er en forklaring på begge begrepene og hvordan de fungerer sammen:</p>
+<h3>1. Konstitusjonelt monarki</h3>
+<p>Dette betyr at Norge har en konge (eller dronning) som statsoverhode, men at kongens makt er begrenset og regulert av en grunnlov (konstitusjon).</p>
+<ul>
+<li><strong>Monarki:</strong> Ordet betyr «styre av én», og refererer til at statsoverhodet er en monark som sitter på livstid. I Norge er dette kongen (for tiden Harald).</li>
+<li><strong>Konstitusjonelt:</strong> Ordet betyr at monarkens makt ikke er absolut, men styres av grunnloven. Det vil si at monarken ikke kan ta beslutninger på eget initiativ som påvirker samfunnet. I praksis har kongen i dag hovedsakelig seremonielle og representerende oppgaver.</li>
+</ul>
+<h3>2. Parlamentarisk demokrati</h3>
+<p>Dette beskriver hvordan regjeringen får sin makt, og at det er folkevalgte som styrer landet.</p>
+<ul>
+<li><strong>Demokrati:</strong> Ordet betyr «folkestyre». Det innebærer at makten utgår fra folket, som hvert fjerde år velger representanter til Stortinget gjennom frie og rettferdige valg.</li>
+<li><strong>Parlamentarisme:</strong> Dette er det sentrale prinsippet i norsk styresett. Det betyr at regjeringen (utøvende makt) er avhengig av tillit fra Stortinget (lovgivende makt). Hvis Stortinget vedtar et mistillitsforslag mot regjeringen, plikter statsministeren å gå av. Med andre ord står regjeringen bare så lenge den har støtte fra et flertall i Stortinget.</li>
+</ul>
+<h3>Hvordan begrepene henger sammen</h3>
+<p>Selv om Norge har en monark som statsoverhode, er det parlamentarismen som bestemmer hvem som faktisk styrer landet. Det betyr at kongen, til tross for sin symbolske rolle, ikke kan utpeke hvem som skal være statsminister. Det er Stortinget som gjennom sitt flertall bestemmer hvilken regjering som får styre.</p>
+<p><strong>Kort oppsummert:</strong>
+Norge er et <strong>konstitusjonelt monarki</strong> fordi kongen er statsoverhode, men hans makt er strengt definert og begrenset av grunnloven. Samtidig er Norge et <strong>parlamentarisk demokrati</strong> fordi den faktiske styringen skjer gjennom regjeringen som står ansvarlig overfor Stortinget – altså folket.</p>
+<p>Kongen har dermed en viktig symbolsk og samlende rolle, men selve beslutningsmakten ligger hos de folkevalgte representantene i Stortinget og regjeringen.</p></div>
+  </div>
+</article>
+</section>
+</main>
+
+<footer class="colophon">
+  <p>Responses were generated by <a href="https://huggingface.co/NbAiLab/borealis2-26b-a4b-preview-gguf">NbAiLab/borealis2-26b-a4b-preview-gguf</a>, a preview model released by NbAiLab at the National Library of Norway. The model card notes that the preview has not been fully safety-aligned. Content has not been fact-checked or corrected; errors in the responses are the model's own.</p>
+  <p>Page generated from <code>borealis2_results_20260921_164657.json</code> on 27 October 2026.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a[data-cat]'));
+  var sections = links.map(function (a) { return document.getElementById(a.getAttribute('data-cat')); });
+  if (!('IntersectionObserver' in window) || !sections.length) return;
+  var current = null;
+  function setActive(id) {
+    if (id === current) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('data-cat') === id); });
+  }
+  function update() {
+    var y = window.scrollY + 120;
+    var best = sections[0];
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i] && sections[i].offsetTop <= y) best = sections[i];
+    }
+    if (best) setActive(best.id);
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+</body>
+</html>

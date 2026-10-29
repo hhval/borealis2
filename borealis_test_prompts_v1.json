@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "category": "A. General Norwegian",
+    "prompt": "Forklar enkelt forskjellen mellom vær og klima."
+  },
+  {
+    "id": 2,
+    "category": "A. General Norwegian",
+    "prompt": "Hjelp meg å forklare til en amerikansk kollega hva dugnad betyr. Svar på norsk."
+  },
+  {
+    "id": 3,
+    "category": "A. General Norwegian",
+    "prompt": "Hvorfor sier man at Norge er et langstrakt land? Forklar uttrykket og gi noen eksempler."
+  },
+  {
+    "id": 4,
+    "category": "A. General Norwegian",
+    "prompt": "En bekjent har spurt om jeg vil bli med på tur i helgen. Hjelp meg å svare på en høflig måte at jeg ikke kan."
+  },
+  {
+    "id": 5,
+    "category": "A. General Norwegian",
+    "prompt": "Forklar uttrykket «å ha is i magen». Hva betyr det, og i hvilke situasjoner kan man bruke det?"
+  },
+  {
+    "id": 6,
+    "category": "B. Bokmål",
+    "prompt": "Skriv et kort avsnitt om hvorfor det er viktig å lese bøker."
+  },
+  {
+    "id": 7,
+    "category": "B. Bokmål",
+    "prompt": "Skriv en kort og profesjonell e-post til en kollega der du ber om å flytte et møte fra tirsdag til onsdag."
+  },
+  {
+    "id": 8,
+    "category": "B. Bokmål",
+    "prompt": "Forklar forskjellen mellom «hverken» og «verken». Er begge formene tillatt på bokmål?"
+  },
+  {
+    "id": 9,
+    "category": "B. Bokmål",
+    "prompt": "Skriv om denne teksten slik at den høres mer naturlig ut: «Jeg ønsker å informere deg om at jeg ikke har mulighet til å delta på møtet grunnet det faktum at jeg er bortreist.»"
+  },
+  {
+    "id": 10,
+    "category": "B. Bokmål",
+    "prompt": "Skriv fem setninger på bokmål som inneholder sammensatte ord. Velg ord som en norskspråklig modell lett kunne ha skrevet feil som to separate ord."
+  },
+  {
+    "id": 11,
+    "category": "C. Nynorsk",
+    "prompt": "Skriv eit kort avsnitt på naturleg nynorsk om kvifor det er viktig å ta vare på naturen."
+  },
+  {
+    "id": 12,
+    "category": "C. Nynorsk",
+    "prompt": "Skriv ein kort og profesjonell e-post til ein kollega der du ber om å flytte eit møte frå tysdag til onsdag."
+  },
+  {
+    "id": 13,
+    "category": "C. Nynorsk",
+    "prompt": "Forklar skilnaden mellom «eg», «jeg», «vi» og «me». Kva former høyrer til bokmål og kva høyrer til nynorsk?"
+  },
+  {
+    "id": 14,
+    "category": "C. Nynorsk",
+    "prompt": "Gjer denne teksten om til naturleg nynorsk: «Jeg synes det er viktig at alle får muligheten til å delta, selv om de ikke har så mye erfaring fra før.»"
+  },
+  {
+    "id": 15,
+    "category": "C. Nynorsk",
+    "prompt": "Skriv fem setningar på nynorsk om ein vanleg arbeidsdag."
+  },
+  {
+    "id": 16,
+    "category": "D. Grammar",
+    "prompt": "Er denne setningen grammatisk korrekt? «Jeg har bodd i Norge siden fem år.» Hvis ikke, hva er feil, og hvordan bør setningen skrives?"
+  },
+  {
+    "id": 17,
+    "category": "D. Grammar",
+    "prompt": "Hva er forskjellen på «da» og «når» på norsk? Forklar regelen og gi tre eksempler."
+  },
+  {
+    "id": 18,
+    "category": "D. Grammar",
+    "prompt": "Hvilken av disse setningene er korrekt: «De fleste av deltakerne har svart» eller «De fleste av deltakerne har svarte»? Forklar hvorfor, og gi også et eksempel på en setning der det kan være vanskelig å velge riktig verbform."
+  },
+  {
+    "id": 19,
+    "category": "D. Grammar",
+    "prompt": "Forklar forskjellen mellom bestemt og ubestemt form av substantiv. Bruk «bok», «bil» og «hus» som eksempler."
+  },
+  {
+    "id": 20,
+    "category": "D. Grammar",
+    "prompt": "Hva er galt med denne setningen: «Det er mange ting som jeg synes er viktig å tenke på når man skal ta en beslutning»? Er den grammatisk feil, stilistisk svak, eller begge deler? Foreslå en bedre formulering."
+  },
+  {
+    "id": 21,
+    "category": "E. Terminology and style",
+    "prompt": "Hva er gode norske alternativer til «implementere»? Gi forslag som passer i henholdsvis teknisk, administrativ og dagligdags sammenheng."
+  },
+  {
+    "id": 22,
+    "category": "E. Terminology and style",
+    "prompt": "Er «ta en beslutning» et godt uttrykk på norsk, eller finnes det bedre alternativer? Forklar forskjellen mellom «ta en beslutning» og «ta en avgjørelse»."
+  },
+  {
+    "id": 23,
+    "category": "E. Terminology and style",
+    "prompt": "Les denne setningen: «Vi må adressere utfordringene knyttet til implementeringen av den nye løsningen.» Er dette naturlig norsk? Skriv eventuelt om til et mer naturlig språk."
+  },
+  {
+    "id": 24,
+    "category": "E. Terminology and style",
+    "prompt": "Hva er forskjellen mellom «tilbakemelding», «feedback» og «respons»? Bruk hvert ord i en setning."
+  },
+  {
+    "id": 25,
+    "category": "E. Terminology and style",
+    "prompt": "Passer uttrykket «i forhold til» i denne setningen? «Vi må vurdere kostnadene i forhold til budsjettet.» Forklar og foreslå eventuelt en bedre formulering."
+  },
+  {
+    "id": 26,
+    "category": "F. Norwegian government and society",
+    "prompt": "Hvordan er det politiske systemet i Norge organisert? Forklar kort hvilken rolle Stortinget, regjeringen og domstolene har."
+  },
+  {
+    "id": 27,
+    "category": "F. Norwegian government and society",
+    "prompt": "Hva kjennetegner den norske skolen? Skriv en kort beskrivelse på 3-5 setninger."
+  },
+  {
+    "id": 28,
+    "category": "F. Norwegian government and society",
+    "prompt": "Hvordan fungerer systemet med kommuner og fylker i Norge? Hvilke oppgaver har kommunene ansvar for, og hvilke oppgaver blir lagt til fylkene?"
+  },
+  {
+    "id": 29,
+    "category": "F. Norwegian government and society",
+    "prompt": "Hva er folketrygden, og hvilken rolle spiller NAV i det norske velferdssamfunnet? Forklar forskjellen mellom de to."
+  },
+  {
+    "id": 30,
+    "category": "F. Norwegian government and society",
+    "prompt": "Hva betyr det at Norge er et konstitusjonelt monarki og et parlamentarisk demokrati? Forklar begge begrepene og hvordan de henger sammen."
+  }
+]

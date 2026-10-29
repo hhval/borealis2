@@ -1,0 +1,403 @@
+{
+  "model": "NbAiLab/borealis2-26b-a4b-preview-gguf",
+  "source_file": "borealis_test_prompts_v1.json",
+  "run_started": "2026-09-21T16:43:37",
+  "run_finished": "2026-09-21T16:46:57",
+  "gen_kwargs": {
+    "max_tokens": 2048,
+    "temperature": 0.7,
+    "top_p": 0.95
+  },
+  "results": [
+    {
+      "id": 1,
+      "category": "A. General Norwegian",
+      "prompt": "Forklar enkelt forskjellen mellom vær og klima.",
+      "response": "Den enkleste måten å skille dem på er slik:\n\n**Vær** er det som skjer ute akkurat nå.\n**Klima** er det vi forventer skjer ute, basert på mange år med målinger.\n\nHer er en litt lengre forklaring:\n\n**Vær (Kortsiktig)**\nVæret forteller oss om det regner, snør, er sol eller storm akkurat nå, eller i løpet av de neste timene og dagene. Været kan endre seg fra minutt til minutt.\n\n**Klima (Langsiktig)**\nKlimaet forteller oss om det generelle været vi forventer et bestemt sted over lang tid. For å snakke om klima må vi se på målinger over mange år – vanligvis 30 år eller mer.\n\n**Et enkelt bilde for å huske forskjellen:**\nTenk på en fotballkamp:\n*   **Været** er som selve kampen: Det som skjer akkurat nå (mål, frispark, rødt kort).\n*   **Klimaet** er som lagets historikk: Hvordan laget vanligvis spiller, om de pleier å score mye, eller om de er kjent for et sterkt forsvar.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 23,
+        "completion_tokens": 280,
+        "total_tokens": 303
+      },
+      "elapsed_sec": 4.36
+    },
+    {
+      "id": 2,
+      "category": "A. General Norwegian",
+      "prompt": "Hjelp meg å forklare til en amerikansk kollega hva dugnad betyr. Svar på norsk.",
+      "response": "Når du skal forklare «dugnad» for en amerikaner, er det best å fokusere på konseptet **frivillig fellesskap** og **felles innsats**. Siden ordet ikke har en direkte oversettelse, kan du forklare det som «community service» eller «voluntary collective labor».\n\nHer er et forslag til hvordan du kan formulere det på norsk (som du deretter kan oversette eller forklare på engelsk):\n\n---\n\n**«Dugnad» er et helt sentralt begrep i den norske kulturen. Det beskriver en tradisjon der et fellesskap – enten det er et nabolag, en idrettsklubb eller en arbeidsplass – går sammen for å løse en felles oppgave frivillig.\n\nI stedet for å leie inn folk til å få jobben gjort, stiller alle opp og bidrar med sin tid og sine ressurser. Det handler om å bidra for det felles beste, uten betaling, for å bygge et sterkere samfunn.\n\nFor en amerikaner kan du tenke på det som en «community work-dag» eller «neighborhood clean-up», men med et sterkt element av frivillighet som gjelder for nesten alle lag i det norske samfunnet. Det er altså ikke bare et engangstiltak, men en dypere kulturell verdiforankring om at vi alle har et ansvar for fellesskapet.\n\n---\n\n**Noen tips når du forklarer det:**\n\n*   **Bruk relaterte begreper:** Sammenlign det med «neighborhood clean-up» eller «volunteer work», men understrek at dugnad har en mye bredere og mer integrert plass i Norge.\n*   **Fremhev frivilligheten:** Det er viktig å poengtere at ingen blir betalt; motivasjonen er ren samfunnsnytte.\n*   **Forklar kontekstene:** Nevn at det kan være en «dugnad» i en idrettsklubb, for å male et nabolag, eller til og med på en arbeidsplass.\n*   **Knytt det til «janteloven» og fellesskapsverdier:** Det kan være interessant å vise hvordan dugnadsånden reflekterer den norske vektleggingen av fellesskapet over individet.\n\nVed å forklare dugnad på denne måten får du frem at det ikke bare handler om en spesifikk oppgave, men om en hel verdilære som gjennomsyrer norsk kultur.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 556,
+        "total_tokens": 593
+      },
+      "elapsed_sec": 8.97
+    },
+    {
+      "id": 3,
+      "category": "A. General Norwegian",
+      "prompt": "Hvorfor sier man at Norge er et langstrakt land? Forklar uttrykket og gi noen eksempler.",
+      "response": "Når man sier at Norge er et «langstrakt land», mener man at landet strekker seg over en lang avstand fra nord til sør sammenlignet med hvor bredt det er fra øst til vest.\n\nHer er en nærmere forklaring og noen eksempler:\n\n### Hva betyr «langstrakt»?\nBegrepet brukes for å beskrive at geografien i Norge er preget av stor lengde i forhold til bredde. Norge strekker seg fra nord til sør over mer enn 1 900 kilometer, men på det smaleste er landet bare rundt 300 kilometer bredt.\n\nDette skaper flere unike kjennetegn for landet:\n\n1.  **Store klimaforskjeller:** Fordi landet er så langt, opplever vi store variasjoner i klima og temperatur. I nord er vinteren lang og kald, mens sør har et mildere klima.\n2.  **Tidssoner og dagslys:** Den store lengden påvirker også dagslyset. I nord er det midnattssol om sommeren og mørketid om vinteren, mens man i sør har mer typiske årstider med varierende lengde på dagen.\n3.  **Geologiske og landskapige forskjeller:** Fra vestkysten, preget av fjord og skjærgård, til de store fjellene i øst og tundraen i nord – landskapet endrer seg dramatisk når man reiser langs den lengdegraden.\n\n### Eksempler på langstrakt geografi i Norge:\n\n*   **Nord-Sør-avstanden:** Avstanden fra Nordkapp, som ligger lengst nord, til Lindesnes, som ligger lengst sør, er nærmere 2 000 kilometer. Dette er en av de lengste nord-sør-avstandene i Europa.\n*   **Tidssonetilpasning:** Selv om Norge ligger innenfor samme tidssone, føles det som om man krysser tidssoner når man reiser fra Finnmark til Agder, på grunn av de klimatiske forskjellene.\n*   **Naturopplevelser:** På samme dag kan man se snø og is i Troms, mens det er grønt og mildt i Telemark eller Agder.\n\nKort sagt beskriver uttrykket at Norge er et land med stor geografisk lengde som skaper store variasjoner i både klima, landskap og livsstil.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 40,
+        "completion_tokens": 541,
+        "total_tokens": 581
+      },
+      "elapsed_sec": 8.75
+    },
+    {
+      "id": 4,
+      "category": "A. General Norwegian",
+      "prompt": "En bekjent har spurt om jeg vil bli med på tur i helgen. Hjelp meg å svare på en høflig måte at jeg ikke kan.",
+      "response": "Her er noen forslag til hvordan du kan svare høflig, avhengig av hvor nær du er personen og hvor mye du ønsker å forklare:\n\n**Kort og enkelt (hvis du ikke vil gi en spesifikk grunn):**\n* «Takk for spørsmålet! Det høres kjempekoselig ut, men jeg kan dessverre ikke bli med denne gangen. Håper dere får en fin tur!»\n* «Så hyggelig at du spør! Jeg kan dessverre ikke være med denne gangen, men jeg håper dere får det supert. Takk for at du tenkte på meg!»\n\n**Hvis du vil gi en liten forklaring (uten å være for detaljert):**\n* «Takk for invitasjonen! Jeg skulle gjerne blitt med, men jeg har allerede andre planer denne helgen. Håper dere får en flott tur!»\n* «Det høres veldig hyggelig ut, men jeg får dessverre ikke til å bli med denne gangen på grunn av andre planer. Takk for at du spurte!»\n\n**Hvis du vil foreslå en annen gang (hvis du faktisk har lyst til å bli med senere):**\n* «Tusen takk for invitasjonen! Jeg kan dessverre ikke bli med denne helgen, men jeg blir veldig gjerne med en annen gang. Håper dere får det fint!»\n* «Så hyggelig at du spurte! Jeg kan dessverre ikke denne gangen, men jeg vil gjerne bli med en annen gang. Kanskje vi kan finne en ny dag snart? Håper dere får en fin tur!»\n\n**Tips:**\n* **Vær ærlig, men kort:** Du trenger ikke gi en lang forklaring hvis du ikke vil. En enkel og høflig avvisning er helt greit.\n* **Vis at du setter pris på invitasjonen:** Bruk ord som «takk for at du spurte» eller «hyggelig at du tenkte på meg». Det gjør avvisningen mindre brå.\n* **Unngå å «overforklare»:** Hvis du ikke har lyst til å fortelle hva du skal, er det helt greit å bare si «jeg har andre planer». Det er en høflig måte å sette en grense på.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 47,
+        "completion_tokens": 499,
+        "total_tokens": 546
+      },
+      "elapsed_sec": 8.05
+    },
+    {
+      "id": 5,
+      "category": "A. General Norwegian",
+      "prompt": "Forklar uttrykket «å ha is i magen». Hva betyr det, og i hvilke situasjoner kan man bruke det?",
+      "response": "Uttrykket **«å ha is i magen»** betyr å være rolig, tålmodig og kontrollert, selv i situasjoner som er pressende, vanskelige eller preget av stress.\n\nHer er en nærmere forklaring:\n\n### Hva betyr det egentlig?\nÅ ha «is i magen» handler om evnen til å beholde fatningen. I stedet for å reagere med følelser (som frykt, sinne eller panikk), klarer personen å tenke seg om og handle rasjonelt. Det antyder en indre ro som gjør at man ikke lar seg rive med av omstendighetene.\n\nUttrykket kan gi konnotasjoner til to ulike sider:\n1. **Positivt:** Å være rolig, sindig og kontrollert når det virkelig gjelder.\n2. **Negativt (sjelden):** Å være kald, kynisk eller likegyldig til andres følelser.\n\n### Når kan man bruke det?\nUttrykket brukes som regel i situasjoner der det kreves ro og tålmodighet. Her er noen typiske eksempler:\n\n*   **I pressede situasjoner:** «Selv om situasjonen var svært spent, viste han at han hadde is i magen og tok den riktige beslutningen.»\n*   **Når man må vente:** «Vi måtte ha is i magen og vente på at markedet skulle stabilisere seg før vi investerte.»\n*   **I sport eller konkurranse:** «Laget måtte ha is i magen og holde på føringen helt til slutten av kampen.»\n*   **Ved en vanskelig avgjørelse:** «Selv om det var en vanskelig situasjon, klarte hun å ha is i magen og ikke handle forhastet.»\n\n### Opprinnelse (metafor)\nMetaforen er ganske intuitiv: «Is» symboliserer kulde, noe som kan fryse eller dempe intensiteten. Å ha «is i magen» kan altså ses på som å ha en indre kjølighet som hindrer at man blir overopphetet av stress eller sinne. Det er altså en indre «kjølevifte» som sørger for at man holder seg sindig.\n\nOppsummert betyr å ha is i magen å være rolig og samlet når det virkelig trengs.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 44,
+        "completion_tokens": 523,
+        "total_tokens": 567
+      },
+      "elapsed_sec": 8.51
+    },
+    {
+      "id": 6,
+      "category": "B. Bokmål",
+      "prompt": "Skriv et kort avsnitt om hvorfor det er viktig å lese bøker.",
+      "response": "Å lese bøker er viktig fordi det utvider horisonten, styrker språket og gir oss tilgang til nye perspektiver og verdener. Når vi leser, trenes fantasien og konsentrasjonsevnen, samtidig som vi får mulighet til å forstå andre kulturer og erfaringer bedre. Bøker er en unik kilde til kunnskap og underholdning som ikke bare beriker sinnet, men som også kan gi oss hvile og inspirasjon i en travel hverdag.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 31,
+        "completion_tokens": 109,
+        "total_tokens": 140
+      },
+      "elapsed_sec": 1.73
+    },
+    {
+      "id": 7,
+      "category": "B. Bokmål",
+      "prompt": "Skriv en kort og profesjonell e-post til en kollega der du ber om å flytte et møte fra tirsdag til onsdag.",
+      "response": "Her er et par alternativer, avhengig av hvor formell du ønsker å være:\n\n**Alternativ 1: Formell og direkte (passer best hvis dere ikke samarbeider hver dag)**\n\nEmne: Møte tirsdag kl. [tidspunkt]\n\nHei [Navn],\n\nJeg har dessverre fått en konflikt på tirsdag, og lurer på om det er mulig å flytte møtet vårt til onsdag i stedet?\n\nGi meg beskjed om det passer for deg, eller om du har et annet tidspunkt som passer bedre.\n\nHilsen [Ditt Navn]\n\n***\n\n**Alternativ 2: Litt mer uformell (passer best hvis dere jobber tett sammen)**\n\nEmne: Flytte møtet fra tirsdag?\n\nHei [Navn],\n\nTirsdag har blitt litt hektisk, så jeg lurer på om vi kan flytte møtet til onsdag?\n\nGi meg beskjed om det går greit, eller om vi skal finne et annet tidspunkt.\n\nMvh. [Ditt Navn]",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 45,
+        "completion_tokens": 229,
+        "total_tokens": 274
+      },
+      "elapsed_sec": 3.62
+    },
+    {
+      "id": 8,
+      "category": "B. Bokmål",
+      "prompt": "Forklar forskjellen mellom «hverken» og «verken». Er begge formene tillatt på bokmål?",
+      "response": "Begge formene – **hverken** og **verken** – er tillatt på bokmål, men de brukes i litt forskjellige sammenhenger.\n\nHer er en forklaring på forskjellene:\n\n### 1. Hverken (den vanligste formen)\n«Hverken» er den mest brukte formen på bokmål, spesielt når den fungerer som et ord som uttrykker et negativt valg mellom to alternativer. Den står ofte sammen med «eller» i en todelt nektelse.\n\n*   **Eksempel:** «Han snakket hverken norsk eller svensk.»\n*   **Eksempel:** «Hverken du eller jeg kan vite sannheten.»\n\n### 2. Verken (tillatt, men sjeldnere)\n«Verken» er også tillatt på bokmål. Den har samme betydning som «hverken», men brukes oftere i mer formelle eller litterære tekster. I moderne bokmål blir «hverken» likevel foretrukket i de fleste sammenhenger.\n\n*   **Eksempel:** «Verken det ene eller det andre var mulig.»\n\n### Oppsummering\n*   **Hverken** er den mest brukte og anbefalte formen på bokmål i dagligspråk og offentlige tekster.\n*   **Verken** er tillatt, men regnes som mer formell og brukes sjeldnere i moderne bokmål.\n\n**Konklusjon:** Du kan bruke begge formene, men «hverken» er den formen som best samsvarer med dagens bokmålsstandard.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 39,
+        "completion_tokens": 355,
+        "total_tokens": 394
+      },
+      "elapsed_sec": 5.72
+    },
+    {
+      "id": 9,
+      "category": "B. Bokmål",
+      "prompt": "Skriv om denne teksten slik at den høres mer naturlig ut: «Jeg ønsker å informere deg om at jeg ikke har mulighet til å delta på møtet grunnet det faktum at jeg er bortreist.»",
+      "response": "Her er noen måter å skrive det på som høres mer naturlig ut, avhengig av hvor formell du ønsker å være:\n\n**Litt mer uformelt (best for e-post til kolleger):**\n* «Jeg får dessverre ikke deltatt på møtet siden jeg ikke er på kontoret da.»\n* «Jeg er dessverre bortreist og får derfor ikke kommet på møtet.»\n* «Siden jeg er borte den dagen, får jeg dessverre ikke deltatt på møtet.»\n\n**Fortsatt høflig, men mindre stivt:**\n* «Jeg vil gjerne informere om at jeg ikke kan delta på møtet fordi jeg er bortreist.»\n* «Jeg får dessverre ikke deltatt på møtet da jeg ikke er på kontoret.»\n\n**Hva bør du velge?**\nDet opprinnelige uttrykket «grunnet det faktum at» er veldig formelt og brukes sjelden i vanlig norsk tale eller skrift. Bruk heller «siden», «fordi» eller «da» – det gjør språket langt mer flytende og naturlig.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 61,
+        "completion_tokens": 254,
+        "total_tokens": 315
+      },
+      "elapsed_sec": 4.06
+    },
+    {
+      "id": 10,
+      "category": "B. Bokmål",
+      "prompt": "Skriv fem setninger på bokmål som inneholder sammensatte ord. Velg ord som en norskspråklig modell lett kunne ha skrevet feil som to separate ord.",
+      "response": "Her er fem setninger på bokmål med sammensatte ord som ofte feilaktig skrives som to separate ord:\n\n1. Vi må huske å ta med **solkrem** på turen.\n2. **Kjøkkenbordet** er laget av solid eik.\n3. Hun liker å gå turer i **skogkanten**.\n4. En **brannbil** rykket raskt ut til stedet.\n5. **Sykkelhjelm** er nødvendig for sikkerhet.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 55,
+        "completion_tokens": 115,
+        "total_tokens": 170
+      },
+      "elapsed_sec": 1.84
+    },
+    {
+      "id": 11,
+      "category": "C. Nynorsk",
+      "prompt": "Skriv eit kort avsnitt på naturleg nynorsk om kvifor det er viktig å ta vare på naturen.",
+      "response": "Her er eit kort avsnitt på naturleg nynorsk:\n\nDet er heilt avgjerande at vi tek vare på naturen, fordi han gir oss alt vi treng for å leve. Naturen gir oss reint vatn, mat og luft, og fungerer som vern mot naturkatastrofar. I tillegg har naturen eit eigenverd i seg sjølv – eit mangfald av planter og dyr som vi har eit ansvar for å beskytte. Ved å ta vare på naturen legg vi til rette for ei berekraftig framtid der både menneske og andre levande vesen kan trivast.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 41,
+        "completion_tokens": 137,
+        "total_tokens": 178
+      },
+      "elapsed_sec": 2.18
+    },
+    {
+      "id": 12,
+      "category": "C. Nynorsk",
+      "prompt": "Skriv ein kort og profesjonell e-post til ein kollega der du ber om å flytte eit møte frå tysdag til onsdag.",
+      "response": "Her er eit framlegg til ein kort og profesjonell e-post:\n\n**Emne:** Flytting av møte frå tysdag til onsdag\n\nHei [Namn på kollega],\n\nEg vil gjerne høyre om det er mogleg å flytte møtet vårt frå tysdag til onsdag.\n\nEg ser at det passar betre for meg, og håpar det passar for deg òg. Gi meg beskjed om kva tid som passar deg best på onsdag.\n\nBeste helsing,\n\n[Namnet ditt]",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 46,
+        "completion_tokens": 115,
+        "total_tokens": 161
+      },
+      "elapsed_sec": 1.84
+    },
+    {
+      "id": 13,
+      "category": "C. Nynorsk",
+      "prompt": "Forklar skilnaden mellom «eg», «jeg», «vi» og «me». Kva former høyrer til bokmål og kva høyrer til nynorsk?",
+      "response": "Her er ei forklaring på skilnaden mellom desse formene, og kva målformer dei høyrer til:\n\n### «Eg» og «jeg» (første eintal)\n*   **Eg** høyrer til **nynorsk**.\n*   **Jeg** høyrer til **bokmål**.\n\nBegge formene tyder «eg» (første person eintal), men «eg» er den nynorske forma, medan «jeg» er bokmålsforma.\n\n### «Vi» og «me» (første fleirtal)\n*   **Vi** høyrer til **bokmål**.\n*   **Me** høyrer til **nynorsk**.\n\nBegge formene tyder «vi» (første person fleirtal), men «vi» er bokmålsforma, og «me» er nynorskforma.\n\n### Kort oppsummert:\n*   **Nynorsk:** eg, me\n*   **Bokmål:** jeg, vi",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 52,
+        "completion_tokens": 227,
+        "total_tokens": 279
+      },
+      "elapsed_sec": 3.61
+    },
+    {
+      "id": 14,
+      "category": "C. Nynorsk",
+      "prompt": "Gjer denne teksten om til naturleg nynorsk: «Jeg synes det er viktig at alle får muligheten til å delta, selv om de ikke har så mye erfaring fra før.»",
+      "response": "Her er nokre forslag til korleis du kan seia dette på naturleg nynorsk, alt etter kor formell du vil vera:\n\n**Nærast opp til originalen:**\n«Eg synest det er viktig at alle får moglegheita til å delta, sjølv om dei ikkje har så mykje røynsle frå før.»\n\n**Litt meir muntleg/flytande:**\n«Eg synest det er viktig at alle får høve til å delta, sjølv om dei ikkje har så mykje røynsle frå før.»\n\n**Noko meir formelt/i ein skriftleg tekst:**\n«Eg synest det er viktig at alle får moglegheit til å delta, sjølv om dei ikkje har så mykje røynsle frå før.»\n\n**Kort oppsummert:**\n* «Moglegheita» kan gjerne kortast ned til «moglegheit» eller bytast ut med «høve».\n* «Erfaring» blir på nynorsk til «røynsle» (eller «erfaring», men «røynsle» er meir typisk nynorsk).",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 53,
+        "completion_tokens": 255,
+        "total_tokens": 308
+      },
+      "elapsed_sec": 4.08
+    },
+    {
+      "id": 15,
+      "category": "C. Nynorsk",
+      "prompt": "Skriv fem setningar på nynorsk om ein vanleg arbeidsdag.",
+      "response": "Her er fem setningar på nynorsk om ein vanleg arbeidsdag:\n\n1. Arbeidsdagen startar vanlegvis klokka åtte med ein kopp kaffi.\n2. Eg brukar mesteparten av dagen på å løyse ulike oppgåver.\n3. På kontoret arbeider eg tett med dei andre kollegaene mine.\n4. Klokka to tek vi ein kort pause for å slappe av og snakke.\n5. Dagen tek slutt med at eg skriv ferdig rapporten og pakkar saman.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 29,
+        "completion_tokens": 116,
+        "total_tokens": 145
+      },
+      "elapsed_sec": 1.85
+    },
+    {
+      "id": 16,
+      "category": "D. Grammar",
+      "prompt": "Er denne setningen grammatisk korrekt? «Jeg har bodd i Norge siden fem år.» Hvis ikke, hva er feil, og hvordan bør setningen skrives?",
+      "response": "Nei, setningen er ikke helt korrekt.\n\nFeilen ligger i bruken av ordet **«siden»**. På norsk bruker vi «siden» om et bestemt tidspunkt (for eksempel «siden 2019»), mens vi bruker **«i»** om et tidsrom (for eksempel «i fem år»).\n\nHer er de to riktige måtene å skrive det på:\n\n1. **«Jeg har bodd i Norge i fem år.»** (Dette er den mest vanlige måten å si det på hvis du snakker om tidsrommet).\n2. **«Jeg har bodd i Norge siden 2019.»** (Dette er riktig dersom du vil peke på et bestemt årstall).\n\n**Kort forklaring:**\n*   **«I fem år»** uttrykker varigheten av tiden du har bodd der.\n*   **«Siden»** brukes kun når du henviser til et spesifikt punkt i fortiden som markerer starten på perioden.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 48,
+        "completion_tokens": 230,
+        "total_tokens": 278
+      },
+      "elapsed_sec": 3.69
+    },
+    {
+      "id": 17,
+      "category": "D. Grammar",
+      "prompt": "Hva er forskjellen på «da» og «når» på norsk? Forklar regelen og gi tre eksempler.",
+      "response": "Forskjellen på «da» og «når» på norsk handler hovedsakelig om tidspunktet det refereres til: om det er snakk om noe som skjedde én gang i fortiden, eller noe som skjer flere ganger, eller vil skje i fremtiden.\n\nHer er hovedregelen:\n\n### 1. «Da» brukes om fortiden\nVi bruker «da» når vi snakker om et spesifikt tidspunkt eller en hendelse som skjedde én gang i fortiden. Det tilsvarer det engelske ordet «when» i fortid (f.eks. «When I was a child»).\n\n*   **Eksempel 1:** «Da jeg var barn, bodde vi i Oslo.» (Her skjer det én gang, og det er i fortiden).\n*   **Eksempel 2:** «Han ringte meg da han kom hjem.» (Dette skjedde én gang i fortiden).\n*   **Eksempel 3:** «Da vi var på ferie, snøet det.» (Enkelthendelse i fortiden).\n\n### 2. «Når» brukes om nåtiden og fremtiden\nVi bruker «når» om noe som skjer regelmessig (gjentakelse) eller om noe som vil skje i fremtiden. Det tilsvarer «when» i nåtid og fremtid.\n\n*   **Eksempel 1:** «Når det regner, tar vi med oss en paraply.» (Regnet kommer ofte, og vi tar med paraply hver gang).\n*   **Eksempel 2:** «Jeg ringer deg når jeg har tid.» (Hendelse i fremtiden).\n*   **Eksempel 3:** «Når sola skinner, er vi glad.» (Regelmessig tilstand).\n\n### Oppsummert:\n*   **Da:** Spesifikk hendelse i fortiden (Enkelthendelse).\n*   **Når:** Regelmessig hendelse eller hendelse i fremtiden (Gjentakelse/fremtid).\n\n**En enkel hugseregel:**\nHvis du kan bytte ut «da» med «den gang» eller «den dagen» uten at meningen forsvinner, er det fortid – og da bruker du «da». Hvis du kan bytte det ut med «hver gang» eller «den dagen som vil komme», er det fremtid eller gjentakelse – og da bruker du «når».",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 41,
+        "completion_tokens": 535,
+        "total_tokens": 576
+      },
+      "elapsed_sec": 8.78
+    },
+    {
+      "id": 18,
+      "category": "D. Grammar",
+      "prompt": "Hvilken av disse setningene er korrekt: «De fleste av deltakerne har svart» eller «De fleste av deltakerne har svarte»? Forklar hvorfor, og gi også et eksempel på en setning der det kan være vanskelig å velge riktig verbform.",
+      "response": "Den korrekte setningen er: **«De fleste av deltakerne har svart.»**\n\nHer er forklaringen:\n\n### Hvorfor er det «svart» og ikke «svarte»?\n\n1.  **Hovedregelen:** I norsk bruker vi perfektum partisipp (altså verbformen som følger etter *har*, *er*, *hadde* osv.) for å uttrykke at noe har skjedd. Perfektum partisipp av verbet *å svare* er «svart».\n2.  **«Svarte» er fortid:** Ordet «svarte» er preteritum (fortid) av verbet *å svare*. Det brukes når vi forteller om noe som skjedde på et bestemt tidspunkt i fortiden, for eksempel: «De svarte på e-posten i går.»\n3.  **Perfektum partisipp:** Når vi bruker hjelpeverbet *har*, må vi bruke perfektum partisipp. Derfor blir det «har svart».\n\n**Eksempel:**\n*   «De fleste av deltakerne har svart på invitasjonen.» (Perfektum partisipp)\n*   «De svarte alle i går.» (Preteritum)\n\n### Når kan det være vanskelig å velge riktig form?\n\nDet kan ofte være forvirring når et verb har samme form både i preteritum og perfektum partisipp. Da kan det se ut som om begge formene er riktige, selv om den ene er feil.\n\n**Eksempel med verbet «å skrive»:**\nPreteritum er «skrev», men perfektum partisipp er «skrevet».\n\n*   **Riktig:** «Han har skrevet et brev.» (Perfektum partisipp)\n*   **Feil:** «Han har skrevet et brev.» (Her ser det riktig ut, men tenk på at preteritum er «skrev».)\n\n**Eksempel med verbet «å spise»:**\nPreteritum er «spiste» (eller «åt»), men perfektum partisipp er «spist».\n\n*   **Riktig:** «Han har spist middag.» (Perfektum partisipp)\n*   **Feil:** «Han har spiste middag.» (Her er det feil å bruke preteritum «spiste».)\n\n**Konklusjon:** Når du er i tvil, sjekk om verbet har en egen perfektum partisipp-form. Hvis det har det, skal du bruke den etter hjelpeverbet *har*.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 75,
+        "completion_tokens": 573,
+        "total_tokens": 648
+      },
+      "elapsed_sec": 9.46
+    },
+    {
+      "id": 19,
+      "category": "D. Grammar",
+      "prompt": "Forklar forskjellen mellom bestemt og ubestemt form av substantiv. Bruk «bok», «bil» og «hus» som eksempler.",
+      "response": "Når vi snakker om **bestemt** og **ubestemt** form av substantiv, handler det om hvor presist vi peker ut noe.\n\nKort forklart:\n*   **Ubestemt form:** Brukes når vi snakker om noe generelt eller en hvilken som helst av samme type.\n*   **Bestemt form:** Brukes når vi snakker om en spesifikk ting som både taleren og lytteren vet hva er.\n\nHer er eksemplene med ordene «bok», «bil» og «hus»:\n\n### 1. Bok\n*   **Ubestemt form:** «En bok»\n    *   *Eksempel:* «Jeg vil lese en bok.» (Det spiller ingen rolle hvilken bok det er – bare at det er én bok).\n*   **Bestemt form:** «Boken»\n    *   *Eksempel:* «Boken står på bordet.» (Vi snakker om en helt spesifikk bok, den som står på bordet).\n\n### 2. Bil\n*   **Ubestemt form:** «En bil»\n    *   *Eksempel:* «Han kjøpte en bil.» (Han kjøpte hvilken som helst bil – vi peker ikke ut en helt spesiell modell).\n*   **Bestemt form:** «Bilen»\n    *   *Eksempel:* «Bilen er blå.» (Vi snakker om en helt bestemt bil – den blå bilen vi allerede vet hvilken det er).\n\n### 3. Hus\n*   **Ubestemt form:** «Et hus»\n    *   *Eksempel:* «De bygde et hus.» (De bygde et hus av en eller annen type – ikke nødvendigvis et bestemt hus).\n*   **Bestemt form:** «Huset»\n    *   *Eksempel:* «Huset er gammelt.» (Vi snakker om et helt spesifikt hus, for eksempel det huset vi bor i).\n\n### Oppsummering\n| Ord | Ubestemt form | Bestemt form |\n| :--- | :--- | :--- |\n| **Bok** | En bok | Boken |\n| **Bil** | En bil | Bilen |\n| **Hus** | Et hus | Huset |",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 46,
+        "completion_tokens": 498,
+        "total_tokens": 544
+      },
+      "elapsed_sec": 8.15
+    },
+    {
+      "id": 20,
+      "category": "D. Grammar",
+      "prompt": "Hva er galt med denne setningen: «Det er mange ting som jeg synes er viktig å tenke på når man skal ta en beslutning»? Er den grammatisk feil, stilistisk svak, eller begge deler? Foreslå en bedre formulering.",
+      "response": "Setningen er ikke direkte grammatisk feil, men den er både stilistisk svak og litt kronglete.\n\nHer er en gjennomgang av hva som kan forbedres:\n\n### 1. Grammatisk analyse og presisering\nSetningen er grammatisk korrekt, men den er svært **omstendelig**. Den inneholder mange småord og «fyllord» som gjør den unødvendig lang.\n\n*   **«Det er mange ting som»**: Dette er en typisk «det-konstruksjon» som ofte brukes i muntlig tale, men i skriftlig norsk kan det virke slapt og upresist. Det er bedre å gå rett til poenget.\n*   **«tenke på»**: Dette er et ganske generelt uttrykk. Avhengig av kontekst kan det ofte erstattes med mer presise verb som *vurderer*, *overveier* eller *tar i betraktning*.\n\n### 2. Stilistiske svakheter\n*   **«Man»-bruken**: Bruken av «man» kan gi setningen en upersonlig og litt vag klang. I mange sammenhenger er det bedre å bruke et mer aktivt språk.\n*   **Ordrikdom**: Setningen bruker mange ord der færre ord kunne formidlet det samme med mer kraft.\n\n### Forslag til bedre formuleringer\n\nAvhengig av hvor formell eller presis du ønsker å være, kan setningen skrives om på flere måter:\n\n1.  **Mer presis og aktiv (anbefalt):**\n    *   *«Det er flere faktorer å vurdere før man tar en beslutning.»*\n    *   *«Når man skal ta en beslutning, bør man vurdere flere faktorer.»*\n\n2.  **Mer konsis og direkte:**\n    *   *«Nøkkelfaktorer ved beslutningstaking inkluderer...»* (Her fortsetter du med det som faktisk er viktig å tenke på).\n\n3.  **Mer formell:**\n    *   *«Beslutningen krever grundige overveielser av flere aspekter.»*\n\n**Oppsummert:** Den opprinnelige setningen fungerer greit i en uformell samtale, men i skriftlig eller profesjonell sammenheng bør du velge en av de mer presise og konsise variantene ovenfor.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 70,
+        "completion_tokens": 521,
+        "total_tokens": 591
+      },
+      "elapsed_sec": 8.54
+    },
+    {
+      "id": 21,
+      "category": "E. Terminology and style",
+      "prompt": "Hva er gode norske alternativer til «implementere»? Gi forslag som passer i henholdsvis teknisk, administrativ og dagligdags sammenheng.",
+      "response": "Ordet «implementere» er et lånord fra engelsk som brukes mye i næringslivet og tekniske miljøer. På norsk har vi mange gode alternativer som ofte er mer presise. Valget avhenger helt av hva det er som skal implementeres (et system, en plan, en regel eller et tiltak).\n\nHer er forslag delt inn etter sammenheng:\n\n### 1. Teknisk sammenheng\nI tekniske miljøer (IT, ingeniørfag) handler det ofte om å sette i verk en funksjon, installere programvare eller bygge ut en infrastruktur.\n\n*   **Iverksette:** Brukes ofte om å sette i gang en teknisk løsning eller et tiltak.\n    *   *Eksempel:* «Vi skal iverksette den nye oppdateringen i natt.»\n*   **Rulle ut:** Brukes spesielt om programvare eller nettverk som gradvis gjøres tilgjengelig for brukere.\n    *   *Eksempel:* «Vi ruller ut det nye CRM-systemet neste måned.»\n*   **Installere:** Når det er snakk om å få programvare eller maskinvare inn i et miljø.\n    *   *Eksempel:* «Vi må installere den nye driveren på alle PC-ene.»\n*   **Integrere:** Når en ny funksjon kobles sammen med eksisterende systemer.\n    *   *Eksempel:* «Vi integrerer betalingsløsningen i nettbutikken.»\n*   **Utvikle:** Når man skaper en løsning fra bunn av.\n    *   *Eksempel:* «Utviklerne utvikler nå en ny API-løsning.»\n\n### 2. Administrativ sammenheng\nI administrasjon handler det ofte om å innføre nye regler, planer eller organisatoriske grep.\n\n*   **Innføre:** Brukes når man tar i bruk en ny regel, struktur eller praksis.\n    *   *Eksempel:* «Ledelsen har innført ny policy for hjemmekontor.»\n*   **Iverksette:** Passer godt når man omsetter en beslutning til konkret handling.\n    *   *Eksempel:* «Vi iverksetter omstillingsplanen fra mars.»\n*   **Utforme:** Brukes når selve utformingen av en plan eller regel er fokus.\n    *   *Eksempel:* «Vi utformer en ny rekrutteringsstrategi.»\n*   **Formalisere:** Når en uformell praksis gjøres til en fast regel.\n    *   *Eksempel:* «Vi formaliserer arbeidsmiljøavtalen i år.»\n*   **Sette i verk:** En god, klar måte å si at noe skal startes.\n    *   *Eksempel:* «Tiltaket ble satt i verk for å redusere kostnader.»\n\n### 3. Dagligdags sammenheng\nI hverdagstale søker vi ofte etter enkle og direkte ord.\n\n*   **Bruke:** Når man snakker om å ta i bruk et verktøy eller system.\n    *   *Eksempel:* «Vi har begynt å bruke den nye appen.»\n*   **Gjøre:** Når man handler ut fra en plan.\n    *   *Eksempel:* «Vi gjør det vi har blitt enige om.»\n*   **Få på plass:** Når man sørger for at noe endelig fungerer.\n    *   *Eksempel:* «Vi må få på plass det nye systemet før ferien.»\n*   **Starte:** Når fokus er på selve oppstarten.\n    *   *Eksempel:* «Vi starter med det nye programmet i morgen.»\n\n### Oppsummeringstabell\n\n| Kontekst | Alternativer | Bruksområde |\n| :--- | :--- | :--- |\n| **Teknisk** | Iverksette, rulle ut, installere, integrere, utvikle | IT-systemer, maskinvare, programvare |\n| **Administrativ** | Innføre, iverksette, utforme, formalisere, sette i verk | Regler, planer, organisering, policy |\n| **Dagligdags** | Bruke, gjøre, få på plass, starte | Verktøy, verktøy, prosesser, hverdagstiltak |\n\n**Tips:** Hvis du er usikker, fungerer ofte **«innføre»** eller **«sette i verk»** som gode, generelle erstatninger for «implementere» i de fleste sammenhenger.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 49,
+        "completion_tokens": 1005,
+        "total_tokens": 1054
+      },
+      "elapsed_sec": 17.01
+    },
+    {
+      "id": 22,
+      "category": "E. Terminology and style",
+      "prompt": "Er «ta en beslutning» et godt uttrykk på norsk, eller finnes det bedre alternativer? Forklar forskjellen mellom «ta en beslutning» og «ta en avgjørelse».",
+      "response": "«Ta en beslutning» er et helt korrekt og vanlig uttrykk på norsk, men det er nyttig å kjenne til nyansene og alternativene.\n\nHer er en forklaring på forskjellene og de beste alternativene:\n\n### 1. «Ta en beslutning» vs. «Ta en avgjørelse»\nBegge uttrykkene betyr det samme, men de brukes litt forskjellig i norsk språk:\n\n*   **«Ta en beslutning»** er mer formelt og brukes ofte i politiske, forretningsmessige eller juridiske sammenhenger. Det handler ofte om en større, mer kompleks prosess der mange faktorer må veies mot hverandre.\n    *   *Eksempel:* «Styret må ta en beslutning om selskapets fremtidige retning.»\n*   **«Ta en avgjørelse»** brukes oftere i hverdagsspråk eller om enkelttilfeller. Det kan virke litt lettere og mindre «tungt» enn en beslutning.\n    *   *Eksempel:* «Dommeren må ta en avgjørelse i saken.»\n\n**Nyanse:** Selv om begge er riktige, kan «beslutning» gi assosiasjoner til en formell prosess med flere steg, mens «avgjørelse» ofte peker på selve øyeblikket der man velger én vei fremfor en annen.\n\n### 2. Er det et godt uttrykk?\nJa, «ta en beslutning» er et godt og korrekt uttrykk. Mange bruker det nettopp fordi det høres presist og profesjonelt ut.\n\n### 3. Bedre alternativer?\nSelv om «ta en beslutning» er riktig, finnes det andre ord som kan være bedre avhengig av sammenhengen:\n\n*   **«Avgjøre»**: Dette er et sterkere og mer aktivt verb som ofte er mer presist.\n    *   *I stedet for:* «Vi må ta en beslutning om saken.»\n    *   *Bruk heller:* «Vi må avgjøre saken.»\n*   **«Bestemme»**: Dette er det mest vanlige og uformelle uttrykket. Det fungerer i nesten alle hverdagslige situasjoner.\n    *   *I stedet for:* «Hun måtte ta en beslutning om hvilket hus hun skulle kjøpe.»\n    *   *Bruk heller:* «Hun måtte bestemme seg for hvilket hus hun skulle kjøpe.»\n*   **«Konkludere»**: Brukes når man kommer frem til en konklusjon etter å ha vurdert fakta.\n    *   *Eksempel:* «Vi konkluderte med at prosjektet var gjennomførbart.»\n*   **«Velge»**: Brukes når man må velge mellom to eller flere alternativer.\n    *   *Eksempel:* «Vi måtte velge mellom å satse eller trekke oss ut.»\n\n### Oppsummering\n*   **«Ta en beslutning»** er helt riktig, men formelt.\n*   **«Ta en avgjørelse»** er litt mindre formelt og brukes ofte om enkle valg.\n*   **«Bestemme seg»** eller **«avgjøre»** er ofte mer aktive og presise alternativer i mange sammenhenger.\n\nValget avhenger altså av hvor formell situasjonen er og hva slags type valg det er snakk om.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 55,
+        "completion_tokens": 757,
+        "total_tokens": 812
+      },
+      "elapsed_sec": 12.56
+    },
+    {
+      "id": 23,
+      "category": "E. Terminology and style",
+      "prompt": "Les denne setningen: «Vi må adressere utfordringene knyttet til implementeringen av den nye løsningen.» Er dette naturlig norsk? Skriv eventuelt om til et mer naturlig språk.",
+      "response": "Setningen er korrekt, men den høres litt stiv og formell ut. Dette er typisk «kansellistil» eller «business-norsk», som gjerne henter uttrykk fra engelsk (som å *adressere* noe).\n\nHer er noen forslag til hvordan du kan skrive det om for at det skal høres mer naturlig ut:\n\n**Litt mindre formelt:**\n* «Vi må ta tak i utfordringene med å innføre den nye løsningen.»\n* «Vi må løse problemene vi har med å ta i bruk den nye løsningen.»\n\n**Mer direkte og mindre formelt:**\n* «Vi må fikse problemene med den nye løsningen.»\n* «Vi må løse utfordringene rundt den nye løsningen.»\n\n**Helt uformelt:**\n* «Vi må få på plass den nye løsningen.»\n* «Vi må få løst utfordringene vi har med den nye løsningen.»\n\n**Valg av ord:**\n* **«Ta tak i»** eller **«løse»** fungerer bedre enn «adressere» på norsk.\n* **«Innføre»** eller **«ta i bruk»** er mer naturlige norske ord enn «implementere».\n\nOppsummert: Setningen er ikke feil, men den høres litt unaturlig ut. Hvis du vil ha et mer naturlig språk, er det bedre å bruke uttrykk som **«ta tak i»**, **«løse»** eller **«fikse»** i stedet for «adressere».",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 59,
+        "completion_tokens": 347,
+        "total_tokens": 406
+      },
+      "elapsed_sec": 5.58
+    },
+    {
+      "id": 24,
+      "category": "E. Terminology and style",
+      "prompt": "Hva er forskjellen mellom «tilbakemelding», «feedback» og «respons»? Bruk hvert ord i en setning.",
+      "response": "Selv om ordene ofte brukes om hverandre, er det nyanser i betydningen. Her er en forklaring på forskjellene:\n\n1. **Tilbakemelding**\n   Dette er det vanligste norske ordet for å gi eller motta en vurdering, reaksjon eller kommentar. Det brukes gjerne i situasjoner der man vurderer noe som er utført eller presentert.\n   *   *Eksempel:* «Lærerne ga elevene konstruktiv tilbakemelding på oppgaven.»\n\n2. **Feedback**\n   Dette er det engelske ordet for tilbakemelding, og det brukes også mye på norsk, spesielt i næringslivet og i populærkultur. Det bærer ofte med seg en positiv eller konstruktiv undertone.\n   *   *Eksempel:* «Vi trenger mer feedback fra kundene for å forbedre tjenesten.»\n\n3. **Respons**\n   Respons betyr «svar» eller «reaksjon». Det beskriver selve reaksjonen på noe (for eksempel et svar på en tale, et innlegg på sosiale medier eller et svar fra et publikum), snarere enn selve vurderingen av arbeidet.\n   *   *Eksempel:* «Ordførerens tale fikk stor respons fra forsamlingen.»\n\n**Kort sagt:** «Tilbakemelding» og «feedback» betyr det samme, men «respons» beskriver selve reaksjonen eller svaret.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 42,
+        "completion_tokens": 321,
+        "total_tokens": 363
+      },
+      "elapsed_sec": 5.16
+    },
+    {
+      "id": 25,
+      "category": "E. Terminology and style",
+      "prompt": "Passer uttrykket «i forhold til» i denne setningen? «Vi må vurdere kostnadene i forhold til budsjettet.» Forklar og foreslå eventuelt en bedre formulering.",
+      "response": "Ja, uttrykket «i forhold til» passer godt i denne setningen. Det brukes ofte for å sammenligne to størrelser eller for å sette noe inn i en sammenheng. I dette tilfellet betyr det at man må se kostnadene opp mot budsjettet for å se om de er i tråd med det som er avsatt.\n\nSetningen er korrekt og klar, men avhengig av hva du ønsker å understreke, finnes det andre måter å si det på. Her er et par eksempler:\n\n1. «Vi må vurdere kostnadene opp mot budsjettet.» (Her understrekes sammenligningen.)\n2. «Vi må vurdere kostnadene i forhold til budsjettet.» (Dette er den opprinnelige setningen, og den fungerer bra.)\n3. «Vi må se kostnadene i sammenheng med budsjettet.» (Dette er litt mer formelt og antyder at man må se på den helhetlige situasjonen.)\n\nValg av uttrykk avhenger altså av nyanse og kontekst. Hvis du ønsker en mer direkte sammenligning, er «opp mot» eller «i forhold til» gode valg. Hvis du ønsker å understreke den helhetlige sammenhengen, er «i sammenheng med» et godt alternativ.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 59,
+        "completion_tokens": 292,
+        "total_tokens": 351
+      },
+      "elapsed_sec": 4.68
+    },
+    {
+      "id": 26,
+      "category": "F. Norwegian government and society",
+      "prompt": "Hvordan er det politiske systemet i Norge organisert? Forklar kort hvilken rolle Stortinget, regjeringen og domstolene har.",
+      "response": "Det politiske systemet i Norge er et parlamentarisk demokrati. Det betyr at regjeringen utgår fra Stortinget og må ha Stortingets tillit for å kunne styre landet.\n\nHer er en kort forklaring på rollene til Stortinget, regjeringen og domstolene:\n\n**Stortinget**\nStortinget er Norges nasjonalforsamling og har den lovgivende makten. De vedtar lover, bestemmer statsbudsjettet og fører tilsyn med regjeringen. Stortinget har også som rolle å representere folket og behandle saker av nasjonal betydning.\n\n**Regjeringen**\nRegjeringen utgjør den utøvende makten. Den ledet av statsministeren og består av statsråder som har ansvar for ulike departementer og fagområder. Regjeringen iverksetter lovene som Stortinget vedtar, styrer statsforvaltningen og foreslår lover og statsbudsjettet til Stortinget.\n\n**Domstolene**\nDomstolene har den dømmende makten. De fortolker og anvender lovene som er vedtatt av Stortinget. Norges Høyesterett står øverst og er den øverste domstolen. Domstolene sørger for at lovene etterleves korrekt, og kan kontrollere at vedtak fattet av forvaltningen og regjeringen holder seg innenfor loven.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 45,
+        "completion_tokens": 313,
+        "total_tokens": 358
+      },
+      "elapsed_sec": 5.03
+    },
+    {
+      "id": 27,
+      "category": "F. Norwegian government and society",
+      "prompt": "Hva kjennetegner den norske skolen? Skriv en kort beskrivelse på 3-5 setninger.",
+      "response": "Den norske skolen kjennetegnes av en inkluderende og likestilt tilnærming der alle barn får lik rett til utdanning uavhengig av bakgrunn. Det legges stor vekt på elevaktiv læring, kritisk tenkning og praktiske ferdigheter som forbereder elevene på fremtidens arbeidsliv. Skolen fremmer også demokratiske verdier og samarbeidsevner gjennom gruppearbeid og diskusjoner i klasserommet.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 40,
+        "completion_tokens": 104,
+        "total_tokens": 144
+      },
+      "elapsed_sec": 1.67
+    },
+    {
+      "id": 28,
+      "category": "F. Norwegian government and society",
+      "prompt": "Hvordan fungerer systemet med kommuner og fylker i Norge? Hvilke oppgaver har kommunene ansvar for, og hvilke oppgaver blir lagt til fylkene?",
+      "response": "Norge er delt inn i to administrative nivåer under staten: **kommuner** og **fylker**. Begge nivåene har sitt eget folkevalgte organ (kommunestyre/fylkesting), egne administrasjoner og ansvar for ulike oppgaver.\n\nHer er en oversikt over hvordan ansvarsfordelingen fungerer:\n\n### 1. Kommunenes oppgaver\nKommunen er det laveste forvaltningsnivået og er det nivået som står nærmest innbyggerne. Kommunen har ansvar for tjenester som berører dagliglivet til folk i stor grad.\n\n**Viktige oppgaver for kommunene:**\n\n*   **Grunnskole:** Drift og vedlikehold av barneskoler og ungdomsskoler.\n*   **Helse og omsorg:** Sykehjem, hjemmesykepleie, helsestasjoner og omsorgsboliger.\n*   **Barnehager:** Kommunen har ansvar for å tilby nok barnehageplasser (selv om mange barnehager er private).\n*   **Sosiale tjenester:** NAV (sosialhjelp) og andre sosiale støtteordninger.\n*   **Vann, avløp og renovasjon:** Sørge for rent vann, avløpshåndtering og renovasjon av søppel.\n*   **Barnevern:** Tjenester for barn som trenger beskyttelse og omsorg.\n*   **Lokalt planarbeid:** Reguleringsplaner og reguleringsbestemmelser som bestemmer hva ulike landområder skal brukes til.\n*   **Kultur og fritid:** Biblioteker, svømmehaller og idrettsanlegg.\n*   **Lokal infrastruktur:** Vedlikehold av kommunale veier, gatebelysning og parker.\n\n---\n\n### 2. Fylkenes oppgaver\nFylket fungerer som et mellomnivå mellom staten og kommunene. Oppgavene er mer regionalt orienterte og dekker tjenester som er for store til at en enkelt kommune kan håndtere dem alene.\n\n**Viktige oppgaver for fylkene:**\n\n*   **Videregående opplæring:** Drift og vedlikehold av videregående skoler, samt voksenopplæring.\n*   **Tannhelsetjenesten:** Den offentlige tannhelsetjenesten er et fylkeskommunalt ansvar.\n*   **Fylkesveier:** Drift og vedlikehold av fylkesveier (nummerert med f.eks. Fv. 100).\n*   **Kollektivtransport:** Organisering av busstilbud, ferger og andre transportmidler i regionen.\n*   **Regional utvikling:** Arbeide med vekst og næringsutvikling i hele regionen.\n*   **Kulturarv:** Bevaring og forvaltning av kulturminner.\n*   **Tjenester for ungdom:** Ungdomsklubber og ungdomskonsulenter.\n\n---### Kort oppsummert: Forskjellen mellom nivåene\n\n| Oppgavetype | Kommune | Fylke |\n| :--- | :--- | :--- |\n| **Skole** | Barneskole og ungdomsskole | Videregående skole |\n| **Helse** | Sykepleie, omsorg og barnehage | Tannhelsetjeneste |\n| **Infrastruktur** | Kommunale veier | Fylkesveier |\n| **Kollektivt** | (Ofte via selskap) | Buss, ferge, kollektivtransport |\n| **Planarbeid** | Lokal reguleringsplan | Regional planstrategi |\n\n**Viktige merknader:**\n1.  **Statlige oppgaver:** Oppgaver som politi, forsvar, rettsvesen og spesialisthelsetjenesten (sykehus) ligger under statlig myndighet (Helse- og omsorgsdepartementet, Justis- og beredskapsdepartementet osv.), ikke under kommune eller fylke.\n2.  **Tjenesteforsyning:** Selv om ansvaret er delt, samarbeider kommuner og fylker ofte om felles tjenester som for eksempel NAV.\n3.**Styrkeforhold:** Kommunene har større ansvar for innbyggerens dagligliv, mens fylkene har et mer regionalt og overordnet ansvar.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 54,
+        "completion_tokens": 970,
+        "total_tokens": 1024
+      },
+      "elapsed_sec": 16.38
+    },
+    {
+      "id": 29,
+      "category": "F. Norwegian government and society",
+      "prompt": "Hva er folketrygden, og hvilken rolle spiller NAV i det norske velferdssamfunnet? Forklar forskjellen mellom de to.",
+      "response": "For å forstå det norske velferdssystemet er det viktig å skille mellom **folketrygden** (selve systemet) og **NAV** (institusjonen som forvalter det).\n\nHer er en forklaring på hva de er, og forskjellen mellom dem:\n\n### 1. Hva er folketrygden?\nFolketrygden er selve grunnmuren i det norske velferdssystemet. Det er en obligatorisk, offentlig forsikringsordning som dekker alle som bor eller arbeider i Norge.\n\n*   **Formål:** Den skal sikre innbyggerne inntekt ved sykdom, arbeidsledighet, alderdom, uførhet og andre livshendelser. Målet er å skape sosial trygghet og jevne ut økonomiske forskjeller.\n*   **Hva dekker den?** Folketrygden inkluderer ytelser som alderspensjon, uføretrygd, sykepenger, foreldrepenger, arbeidsavklaringspenger, arbeidsledighetstrygd og stønad ved sykdom.\n*   **Finansiering:** Den finansieres gjennom arbeidsgiveravgift, medlemsavgift (det vi kaller \"skatt\" på lønn) og statlige overføringer.\n\n### 2. Hva er NAV?\nNAV står for *Ny arbeids- og velferdsforvaltning*. Det er et direktorat underlagt Arbeids- og sosialministeriet, som fungerer som det operative organet som forvalter folketrygden i praksis.\n\n*   **Rolle:** NAV er det organet som tar imot søknader om ytelser, betaler ut stønadene, og tilbyr tjenester som jobbhjelp og sosiale tjenester.\n*   **Oppgave:** NAV er ikke bare et \"utbetalingskontor\", men også et arbeidsmarkedstiltak som hjelper folk tilbake i jobb. De driver også med rus- og sosialt arbeid, økonomisk rådgivning og utforming av velferdsytelser.\n*   **Oppbygging:** NAV består av et direktorat (sentralt), regionale kontorer og lokale NAV-kontorer som er synligheten til staten der folk bor.\n\n---\n\n### Forskjellen mellom folketrygden og NAV\n\nKort fortalt er forskjellen mellom systemet og institusjonen:\n\n| Egenskap | Folketrygden | NAV |\n| :--- | :--- | :--- |\n| **Natur** | En lovfestet forsikringsordning (systemet). | En offentlig myndighet/et direktorat (institusjonen). |\n| **Hva det er** | Det juridiske rammeverket og reglene som bestemmer hvem som har krav på hva. | Organet som praktisk utfører og forvalter reglene. |\n| **Funksjon** | Definerer rettigheter til ytelser (f.eks. \"du har rett på trygd når du fyller 67\"). | Behandler søknader, utbetaler pengene og gir veiledning. |\n| **Omfang** | Omfatter selve rettighetsstrukturen og finansieringen av ytelser. | Omfatter både administrasjon av trygd, arbeidsmarkedstjenester og sosiale tjenester. |\n\n**En enkel analogi:**\nTenk på folketrygden som **reglene i et spill** – det er reglene som bestemmer hvordan man skal spille og hva man har krav på. NAV er **dommerne og banen** – de som styrer spillet, tolker reglene og ser til at alle får det de har rett på.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 45,
+        "completion_tokens": 808,
+        "total_tokens": 853
+      },
+      "elapsed_sec": 13.49
+    },
+    {
+      "id": 30,
+      "category": "F. Norwegian government and society",
+      "prompt": "Hva betyr det at Norge er et konstitusjonelt monarki og et parlamentarisk demokrati? Forklar begge begrepene og hvordan de henger sammen.",
+      "response": "Begrepene beskriver hvordan det norske statssystemet er bygget opp og hvordan makt fordeles. Her er en forklaring på begge begrepene og hvordan de fungerer sammen:\n\n### 1. Konstitusjonelt monarki\nDette betyr at Norge har en konge (eller dronning) som statsoverhode, men at kongens makt er begrenset og regulert av en grunnlov (konstitusjon).\n\n*   **Monarki:** Ordet betyr «styre av én», og refererer til at statsoverhodet er en monark som sitter på livstid. I Norge er dette kongen (for tiden Harald).\n*   **Konstitusjonelt:** Ordet betyr at monarkens makt ikke er absolut, men styres av grunnloven. Det vil si at monarken ikke kan ta beslutninger på eget initiativ som påvirker samfunnet. I praksis har kongen i dag hovedsakelig seremonielle og representerende oppgaver.\n\n### 2. Parlamentarisk demokrati\nDette beskriver hvordan regjeringen får sin makt, og at det er folkevalgte som styrer landet.\n\n*   **Demokrati:** Ordet betyr «folkestyre». Det innebærer at makten utgår fra folket, som hvert fjerde år velger representanter til Stortinget gjennom frie og rettferdige valg.\n*   **Parlamentarisme:** Dette er det sentrale prinsippet i norsk styresett. Det betyr at regjeringen (utøvende makt) er avhengig av tillit fra Stortinget (lovgivende makt). Hvis Stortinget vedtar et mistillitsforslag mot regjeringen, plikter statsministeren å gå av. Med andre ord står regjeringen bare så lenge den har støtte fra et flertall i Stortinget.\n\n### Hvordan begrepene henger sammen\nSelv om Norge har en monark som statsoverhode, er det parlamentarismen som bestemmer hvem som faktisk styrer landet. Det betyr at kongen, til tross for sin symbolske rolle, ikke kan utpeke hvem som skal være statsminister. Det er Stortinget som gjennom sitt flertall bestemmer hvilken regjering som får styre.\n\n**Kort oppsummert:**\nNorge er et **konstitusjonelt monarki** fordi kongen er statsoverhode, men hans makt er strengt definert og begrenset av grunnloven. Samtidig er Norge et **parlamentarisk demokrati** fordi den faktiske styringen skjer gjennom regjeringen som står ansvarlig overfor Stortinget – altså folket.\n\nKongen har dermed en viktig symbolsk og samlende rolle, men selve beslutningsmakten ligger hos de folkevalgte representantene i Stortinget og regjeringen.",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 49,
+        "completion_tokens": 643,
+        "total_tokens": 692
+      },
+      "elapsed_sec": 10.6
+    }
+  ]
+}
