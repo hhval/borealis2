@@ -2,7 +2,7 @@
 
 The Norwegian-tuned quantized preview model of Borealis 2 was tested on a small set of Norwegian prompts, and here is an overview of the findings.
 
-**TL;DR:** Borealis 2 produces responses that often sound natively Norwegian, but there is still work to do when it comes to language quality.
+**TL;DR:** Borealis 2 produces responses that often sound natively Norwegian, but the language quality still needs improvement.
 
 ## The positives
 
