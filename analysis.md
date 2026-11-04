@@ -1,10 +1,12 @@
 # Language analysis of the Borealis 2 test set
 
-**TL;DR:** Borealis 2 sounds more natively Norwegian than many mainstream language models, but there is still work to do when it comes to language quality.
+The Norwegian-tuned quantized preview model of Borealis 2 was tested on a small set of Norwegian prompts, and here is an overview of the findings.
+
+**TL;DR:** Borealis 2 produces responses that often sound natively Norwegian, but there is still work to do when it comes to language quality.
 
 ## The positives
 
-Compared to what we are used to from chatbots, Borealis 2 sounds more native in both sentence structure and term choices. The Norwegian-tuned model seems less likely to output sentences that read like direct translations from English (although it is not perfect).
+On first impression, Borealis 2 sounds more natively Norwegian than we are used to from mainstream language models. Model responses read less like direct translations from English, and more like text originally written in Norwegian.
 
 The following sentence about the Norwegian school system is a good example of the kind of language that often comes out stilted from a language model, but reads pretty well from Borealis 2:
 
